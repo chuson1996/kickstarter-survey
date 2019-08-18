@@ -25,7 +25,7 @@ app.use('/api/v1/delivery', delivery)
 app.use('/api/v1/backer', backer)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 })
 
 const PORT = 5000

@@ -1,0 +1,12 @@
+img {
+  cursor: pointer;
+}
+
+.active {
+  border: 1px solid black;
+}
+
+.collections {
+  display: flex;
+  flex-direction: column-reverse;
+}

@@ -6,6 +6,59 @@ import './index.scss'
 import chart from '../../assets/chart.png'
 import measuring_guide from '../../assets/measuring_shoes.gif'
 import ShoeMeasurment from '../ShoeMeasurment'
+import ShoeColors from '../ShoeColors'
+
+import ClassicBlack from '../../assets/ClassicBlack.png'
+import ClassicWhite from '../../assets/ClassicWhite.png'
+import StealthBlack from '../../assets/StealthBlack.png'
+import Blue from '../../assets/Blue.png'
+import Pink from '../../assets/ClassicBlack.png'
+import RebelBlack from '../../assets/RebelBlack.png'
+import RebelWhite from '../../assets/RebelWhite.png'
+import Red from '../../assets/Red.png'
+import Wanderer from '../../assets/Wanderer.png'
+
+import './index.scss'
+
+const shoeColors = [
+  {
+    name: 'Classic Black',
+    src: ClassicBlack
+  },
+  {
+    name: 'Classic White',
+    src: ClassicWhite
+  },
+  {
+    name: 'Stealth Black',
+    src: StealthBlack
+  },
+  {
+    name: 'Rebel Black',
+    src: RebelBlack
+  },
+  {
+    name: 'Rebel White',
+    src: RebelWhite
+  },
+  {
+    name: 'Blue',
+    src: Blue
+  },
+  {
+    name: 'Pink',
+    src: Pink
+  },
+  {
+    name: 'Red',
+    src: Red
+  },
+  {
+    name: 'Wanderer',
+    src: Wanderer
+  }
+]
+
 class SurveyForm extends Component {
   state = {
     name: '',
@@ -49,6 +102,15 @@ class SurveyForm extends Component {
           invalidBackerId: err.response.status
         })
       })
+  }
+
+  onImageSelected = (i, name) => {
+    this.setState({
+      activeIndex: i,
+      shoes: this.state.shoes.map(() => ({
+        color: name
+      }))
+    })
   }
 
   hideShoeMeasuringGuide = () => {
@@ -187,15 +249,16 @@ class SurveyForm extends Component {
       shoes,
       displayForm,
       error,
-      hideShoeMeasuringGuide,
       invalidBackerId,
+      hideShoeMeasuringGuide,
       shoeMeasured,
       fillTheForm
     } = this.state
     if (invalidBackerId === 404) {
       return <Redirect to="/" />
     }
-    console.log('shoes', shoes)
+
+    console.log({ shoes })
     return (
       <>
         {!fillTheForm && (
@@ -292,41 +355,21 @@ class SurveyForm extends Component {
                       <div key={index} className="delivery-items">
                         <h3>Pick Your Color and Size {`#${index + 1}`}</h3>
                         <div className="color-size">
-                          <div className="color">
-                            <label>Color</label>
-                            <select
-                              name="color"
-                              value={shoe.color}
-                              onChange={this.handleShoeChange(index)}
-                            >
-                              <option defaultValue value="Classic Black">
-                                Classic Black
-                              </option>
-                              <option value="Classic White">
-                                Classic White
-                              </option>
-                              <option value="Stealth Black">
-                                Stealth Black
-                              </option>
-                              <option value="Rebel Black">Rebel Black</option>
-                              <option value="Rebel White">Rebel White</option>
-                              <option value="Wanderer">Wanderer</option>
-                              <option value="Passion Red">Passion Red</option>
-                              <option value="Sweet Pink">Sweet Pink</option>
-                              <option value="Ocean Blue">Ocean Blue</option>
-                            </select>
-                          </div>
-                          <div className="size">
-                            <label> Size</label>
-                            <input
-                              type="text"
-                              name="size"
-                              value={shoe.size}
-                              onChange={this.handleShoeChange(index)}
-                              placeholder="7 Men EU/43 Women US..."
-                              required
-                            />
-                          </div>
+                          <ShoeColors
+                            shoeColors={shoeColors}
+                            handleClick={this.onImageSelected}
+                          />
+                        </div>
+                        <div className="size">
+                          <label> Size</label>
+                          <input
+                            type="text"
+                            name="size"
+                            value={shoe.size}
+                            onChange={this.handleShoeChange(index)}
+                            placeholder="7 Men EU/43 Women US..."
+                            required
+                          />
                         </div>
                         <br />
                         {/* same address checkbox */}

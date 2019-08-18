@@ -68,8 +68,26 @@ select:disabled {
   }
 }
 
+.size {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 5rem auto 0 auto;
+  input {
+    // width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+}
+
 .color-size {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   input,
   select {
@@ -104,7 +122,8 @@ select:disabled {
   .size {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 20%;
+    margin: auto;
     input {
       // width: 100%;
       padding: 12px 20px;
