@@ -1,4 +1,6 @@
 // Update with your config settings.
+
+console.log('process.env.DB_USER', process.env.DB_HOST)
 module.exports = {
   development: {
     client: 'pg',
@@ -13,11 +15,11 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
+      user: 'rensoriginal',
+      password: 'coffeeshoeisreal',
       port: '5432',
-      host: process.env.DB_HOST,
-      database: process.env.DB_NAME
+      host: '35.232.25.117',
+      database: 'rens'
     },
 
     migrations: {
