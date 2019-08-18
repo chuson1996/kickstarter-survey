@@ -1,15 +1,12 @@
 {
-  "version": 2,
   "name": "nodejs",
-  "builds": [
-    { "src": "*.js", "use": "@now/node" },
-    {
-      "env": {
-        "DB_USER": "@db_user",
-        "DB_PASSWORD": "@db_password",
-        "DB_HOST": "@db_host",
-        "DB_NAME": "@db_name"
-      }
+  "builds": [{ "src": "*.js", "use": "@now/node-server" }],
+  "build": {
+    "env": {
+      "DB_USER": "@db_user",
+      "DB_PASSWORD": "@db_password",
+      "DB_HOST": "@db_host",
+      "DB_NAME": "@db_name"
     }
-  ]
+  }
 }
