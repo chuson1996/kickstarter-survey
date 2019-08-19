@@ -57,49 +57,14 @@ router.post('/', async (req, res) => {
       html: `
       Hello ${order.name}
       <h1>Thank Your Once Again For Supporting Rens Original</h1>
-            <h1>Here Are Your Details</h1>
-            <br />
-            shoe : ${delivery.map(color => `<h3>${color.color}</h3>`)}
-            size: ${delivery.map(color => `<h3>${color.size}</h3>`)}
-            Address: ${delivery.map(
-              color => `<h3>${color.streetAddress}</h3>`
-            )} 
-            city: ${delivery.map(color => `<h3>${color.city}</h3>`)} 
-            state: ${delivery.map(color => `<h3>${color.state}</h3>`)} 
-
-          if you think you have made some mistake please mail us at support@rensoriginal.com
+          <p>We have received your information</p>
+          <p>If you feel like you there is some error in the form, please contact support@rensoriginal.com</p>
 
           BR,
           Rens Original Team
           `
     }
     sgMail.send(msg)
-
-    // NodeMailer
-    // let transporter = nodeMailer.createTransport({
-    //   host: 'smtp.gmail.com',
-    //   port: 465,
-    //   secure: true,
-    //   auth: {
-    //     // should be replaced with real sender's account
-    //     user: 'testmyemailwithnode@gmail.com',
-    //     pass: 'R@ndom123'
-    //   }
-    // })
-    // let mailOptions = {
-    //   // should be replaced with real recipient's account
-    //   to: `${order.email}`,
-    //   subject: 'Thank you for Survey',
-    //   body: `Hello ${
-    //     order.name
-    //   }, We have received your shoe information. We are working hard to deliver the best product. Thank you for your patience. BR, Rens Team`
-    // }
-    // transporter.sendMail(mailOptions, (error, info) => {
-    //   if (error) {
-    //     return console.log(error)
-    //   }
-    //   console.log('Message %s sent: %s', info.messageId, info.response)
-    // })
     res.status(200).json({ success: true })
   } catch (error) {
     res.status(409).json({ error: `You have already submitted the form` })
