@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "deploy": "now -e db_user=@d@db_user db_password=@db_password db_host=@db_host db_name=@db_name",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "migrate": "knex migrate:latest",

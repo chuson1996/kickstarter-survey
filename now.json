@@ -13,16 +13,8 @@
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       },
-      "src": "(.*)",
+      "src": ".*",
       "dest": "/"
     }
-  ],
-  "build": {
-    "env": {
-      "DB_USER": "@db_user",
-      "DB_PASSWORD": "@db_password",
-      "DB_HOST": "@db_host",
-      "DB_NAME": "@db_name"
-    }
-  }
+  ]
 }
