@@ -1,11 +1,11 @@
 {
-  "name": "nodejs",
+  "name": "kickstarter survey form",
   "builds": [
     {
-      "src": "./index.js",
+      "src": "index.js",
       "use": "@now/node-server",
       "config": {
-        "includeFiles": ["/build/**/*.js"]
+        "includeFiles": ["build/**/*.js"]
       }
     }
   ]
