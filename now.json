@@ -6,7 +6,7 @@
       "use": "@now/node-server"
     },
     {
-      "src": "build/**/*.js",
+      "src": "./build/**/*.js",
       "use": "@now/static"
     }
   ]
