@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //survey routes
 
-app.use(express.static('client/build/'))
+app.use(express.static('build'))
 
 app.use('/api/v1/order', order)
 app.use('/api/v1/delivery', delivery)
@@ -27,7 +27,8 @@ app.use('/api/v1/backer', backer)
 // console.log('dirmane', path.resolve(__dirname, 'client', 'build', 'index.html'))
 
 app.get('/', (request, response) => {
-  response.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  const indexFile = path.resolve(__dirname, 'build', 'index.html')
+  response.sendFile(indexFile)
 })
 
 // app.get('*', (req, res) => {
