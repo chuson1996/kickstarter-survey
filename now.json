@@ -15,7 +15,7 @@
   ],
   "builds": [
     {
-      "src": "package.json",
+      "src": "/build",
       "use": "@now/static-build",
       "config": {
         "distDir": "build"
