@@ -26,10 +26,10 @@ app.use('/api/v1/backer', backer)
 
 // console.log('dirmane', path.resolve(__dirname, 'client', 'build', 'index.html'))
 
-app.get('/', (request, response) => {
-  const indexFile = path.resolve(__dirname, 'build', 'index.html')
-  response.sendFile(indexFile)
-})
+// app.get('/', (request, response) => {
+//   const indexFile = path.resolve(__dirname, 'build', 'index.html')
+//   response.sendFile(indexFile)
+// })
 
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
