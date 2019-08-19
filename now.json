@@ -10,20 +10,12 @@
       "src": "^/service-worker.js",
       "headers": { "cache-control": "s-maxage=0" },
       "dest": "/service-worker.js"
-    },
-    { "src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1" }
+    }
   ],
   "builds": [
     {
-      "src": "/build",
-      "use": "@now/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    },
-    {
       "src": "index.js",
-      "use": "@now/node",
+      "use": "@now/node-server",
       "config": {
         "maxLambdaSize": "20mb"
       }
