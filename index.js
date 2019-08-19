@@ -18,6 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //survey routes
 
+console.log('prpcess.env', process.env.PWD)
+
 app.use('/api/v1/order', order)
 app.use('/api/v1/delivery', delivery)
 app.use('/api/v1/backer', backer)
