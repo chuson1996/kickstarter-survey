@@ -3,17 +3,10 @@
   "builds": [
     {
       "src": "./index.js",
-      "use": "@now/node-server"
-    },
-    {
-      "src": "/build/**/(.*).js",
-      "use": "@now/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*).js",
-      "dest": "/$1.js"
+      "use": "@now/node-server",
+      "config": {
+        "includeFiles": ["_static/*.js"]
+      }
     }
   ]
 }
