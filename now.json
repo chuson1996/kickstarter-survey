@@ -1,5 +1,5 @@
 {
-  "name": "kickstarter survey form",
+  "name": "kickstarter survey",
   "builds": [
     {
       "src": "index.js",
