@@ -5,13 +5,13 @@
   "builds": [
     {
       "src": "./index.js",
-      "use": "@now/node-server"
+      "use": "@now/node"
     },
     {
       "src": "client/package.json",
       "use": "@now/static-build",
       "config": {
-        "distDir": "build"
+        "includeFiles": ["build/**"]
       }
     }
   ]

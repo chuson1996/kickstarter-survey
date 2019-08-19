@@ -18,24 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //survey routes
 
-console.log('prpcess.env', process.env.PWD)
-
 app.use('/api/v1/order', order)
 app.use('/api/v1/delivery', delivery)
 app.use('/api/v1/backer', backer)
 
 app.use(express.static(__dirname + '/client/build'))
-
-// console.log('dirmane', path.resolve(__dirname, 'client', 'build', 'index.html'))
-
-// app.get('/', (request, response) => {
-//   const indexFile = path.resolve(__dirname, 'build', 'index.html')
-//   response.sendFile(indexFile)
-// })
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-// })
 
 const PORT = 5000
 app.listen(PORT, () => {
