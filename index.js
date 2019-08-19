@@ -18,11 +18,15 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //survey routes
 
-app.use(express.static('client/build'))
+app.use(express.static('client/build/'))
 
 app.use('/api/v1/order', order)
 app.use('/api/v1/delivery', delivery)
 app.use('/api/v1/backer', backer)
+
+app.get('/', (request, response) => {
+  response.sendFile(`${__dirname}/client/build/index.html`)
+})
 
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
