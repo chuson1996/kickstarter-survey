@@ -1,23 +1,7 @@
 {
   "version": 2,
   "name": "Kickstarter",
-  "routes": [
-    { "src": "/", "methods": ["GET"], "dest": "/client/build/index.html" },
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
-    { "src": "^/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "^/asset-manifest.json", "dest": "/asset-manifest.json" },
-    { "src": "^/manifest.json", "dest": "/manifest.json" },
-    {
-      "src": "^/service-worker.js",
-      "headers": { "cache-control": "s-maxage=0" },
-      "dest": "/service-worker.js"
-    },
-    {
-      "src": "^/custom-sw.js",
-      "headers": { "cache-control": "s-maxage=0" },
-      "dest": "/custom-sw.js"
-    }
-  ],
+
   "builds": [
     {
       "src": "./index.js",
