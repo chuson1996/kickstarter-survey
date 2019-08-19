@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
+    "deploy": "now --public",
     "dev": "nodemon index.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
