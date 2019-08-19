@@ -1,24 +1,5 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/", "methods": ["GET"], "dest": "/build/index.html" },
-    { "src": "/build/static/(.*)", "dest": "/static/$1" },
-    { "src": "/build/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "/build/asset-manifest.json", "dest": "/asset-manifest.json" },
-    { "src": "/build/manifest.json", "dest": "/manifest.json" },
-    {
-      "src": "/build/service-worker.js",
-      "headers": { "cache-control": "s-maxage=0" },
-      "dest": "/service-worker.js"
-    }
-  ],
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@now/node-server",
-      "config": {
-        "maxLambdaSize": "20mb"
-      }
-    }
-  ]
+  "routes": [{ "src": "/build/(.*)", "dest": "dist/$1" }],
+  "builds": [{ "src": "/build/**", "use": "@now/static" }]
 }
