@@ -9,5 +9,11 @@
       "src": "/build/**/(.*).js",
       "use": "@now/static"
     }
+  ],
+  "routes": [
+    {
+      "src": "build/**/(.*).js",
+      "dest": "/$1.js"
+    }
   ]
 }
