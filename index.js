@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //survey routes
 
-app.use(express.static('build'))
-
 app.use('/api/v1/order', order)
 app.use('/api/v1/delivery', delivery)
 app.use('/api/v1/backer', backer)
+
+app.use(express.static(__dirname + '/build'))
 
 // console.log('dirmane', path.resolve(__dirname, 'client', 'build', 'index.html'))
 
