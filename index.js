@@ -37,7 +37,11 @@ app.use(express.static(__dirname + '/build'))
 //   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 // })
 
-const PORT = 5000
-app.listen(PORT, () => {
-  console.log(`app is running on port ${PORT}`)
-})
+if (process.env.TARGET === 'now') {
+  module.exports = app
+} else {
+  const PORT = 5000
+  app.listen(PORT, () => {
+    console.log(`app is running on port ${PORT}`)
+  })
+}

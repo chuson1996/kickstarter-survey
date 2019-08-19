@@ -1,14 +1,32 @@
 {
-  "name": "kickstarter survey",
-  "builds": [
+  "version": 2,
+  "routes": [
+    { "src": "/", "methods": ["GET"], "dest": "/build/index.html" },
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": "^/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "^/asset-manifest.json", "dest": "/asset-manifest.json" },
+    { "src": "^/manifest.json", "dest": "/manifest.json" },
     {
-      "src": "index.js",
-      "use": "@now/node-server"
+      "src": "^/service-worker.js",
+      "headers": { "cache-control": "s-maxage=0" },
+      "dest": "/service-worker.js"
     },
+    { "src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1" }
+  ],
+  "builds": [
     {
       "src": "package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "build" }
+      "config": {
+        "distDir": "build"
+      }
+    },
+    {
+      "src": "index.js",
+      "use": "@now/node",
+      "config": {
+        "maxLambdaSize": "20mb"
+      }
     }
   ]
 }
