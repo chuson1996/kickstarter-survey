@@ -2,12 +2,12 @@
   "version": 2,
   "routes": [
     { "src": "/", "methods": ["GET"], "dest": "/build/index.html" },
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
-    { "src": "^/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "^/asset-manifest.json", "dest": "/asset-manifest.json" },
-    { "src": "^/manifest.json", "dest": "/manifest.json" },
+    { "src": "/build/static/(.*)", "dest": "/static/$1" },
+    { "src": "/build/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/build/asset-manifest.json", "dest": "/asset-manifest.json" },
+    { "src": "/build/manifest.json", "dest": "/manifest.json" },
     {
-      "src": "^/service-worker.js",
+      "src": "/build/service-worker.js",
       "headers": { "cache-control": "s-maxage=0" },
       "dest": "/service-worker.js"
     }
