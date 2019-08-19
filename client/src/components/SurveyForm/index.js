@@ -36,7 +36,7 @@ class SurveyForm extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/api/v1/backer/${this.props.match.params.id}`)
+      .get(`/api/v1/backer/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
           backer_id: res.data.map(id => id.backer_id)[0],
@@ -146,7 +146,7 @@ class SurveyForm extends Component {
     e.preventDefault()
     const { name, country, email, pledge, shoes } = this.state
     try {
-      const orders = await axios.post(`http://localhost:5000/api/v1/order`, {
+      const orders = await axios.post(`/api/v1/order`, {
         name,
         email,
         country,
