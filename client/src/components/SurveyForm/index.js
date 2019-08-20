@@ -6,6 +6,10 @@ import './index.scss'
 import chart from '../../assets/chart.png'
 import measuring_guide from '../../assets/measuring_shoes.gif'
 import ShoeMeasurment from '../ShoeMeasurment'
+
+import './index.scss'
+import { shoeColors } from '../../shoes'
+
 class SurveyForm extends Component {
   state = {
     name: '',
@@ -14,7 +18,7 @@ class SurveyForm extends Component {
     pledge: 1,
     shoes: [
       {
-        color: 'Classic Black',
+        color: '',
         size: '',
         streetAddress: '',
         city: '',
@@ -61,7 +65,7 @@ class SurveyForm extends Component {
     this.setState({
       shoes: this.state.shoes.concat([
         {
-          color: 'Classic Black',
+          color: '',
           size: '',
           streetAddress: '',
           city: '',
@@ -84,21 +88,21 @@ class SurveyForm extends Component {
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.value
     const name = target.name
-
     this.setState({
       [name]: value
     })
   }
 
-  handleShoeChange = i => e => {
+  handleShoeChange = (i, shoeColorIndex, shoeName) => e => {
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.value
+
     const name = target.name
     const newShoes = this.state.shoes.map((shoe, sidx) => {
       if (i !== sidx) return shoe
       return {
         ...shoe,
-        [name]: value
+        [name]: value || shoeName
       }
     })
     this.setState({
@@ -117,7 +121,8 @@ class SurveyForm extends Component {
           city: shoes[i - 1].city,
           state: shoes[i - 1].state,
           zipCode: shoes[i - 1].zipCode,
-          sameAddress: true
+          sameAddress: true,
+          selected: true
         }
       } else {
         return {
@@ -126,7 +131,8 @@ class SurveyForm extends Component {
           city: '',
           state: '',
           zipCode: '',
-          sameAddress: false
+          sameAddress: false,
+          selected: true
         }
       }
     })
@@ -195,7 +201,7 @@ class SurveyForm extends Component {
     if (invalidBackerId === 404) {
       return <Redirect to="/" />
     }
-    console.log('shoes', shoes)
+      
     return (
       <>
         {!fillTheForm && (
@@ -292,41 +298,43 @@ class SurveyForm extends Component {
                       <div key={index} className="delivery-items">
                         <h3>Pick Your Color and Size {`#${index + 1}`}</h3>
                         <div className="color-size">
-                          <div className="color">
-                            <label>Color</label>
-                            <select
-                              name="color"
-                              value={shoe.color}
-                              onChange={this.handleShoeChange(index)}
-                            >
-                              <option defaultValue value="Classic Black">
-                                Classic Black
-                              </option>
-                              <option value="Classic White">
-                                Classic White
-                              </option>
-                              <option value="Stealth Black">
-                                Stealth Black
-                              </option>
-                              <option value="Rebel Black">Rebel Black</option>
-                              <option value="Rebel White">Rebel White</option>
-                              <option value="Wanderer">Wanderer</option>
-                              <option value="Passion Red">Passion Red</option>
-                              <option value="Sweet Pink">Sweet Pink</option>
-                              <option value="Ocean Blue">Ocean Blue</option>
-                            </select>
-                          </div>
-                          <div className="size">
-                            <label> Size</label>
-                            <input
-                              type="text"
-                              name="size"
-                              value={shoe.size}
-                              onChange={this.handleShoeChange(index)}
-                              placeholder="7 Men EU/43 Women US..."
-                              required
-                            />
-                          </div>
+
+                          {shoeColors.map((shoeColor, shoeColorIndex) => {
+                            return (
+                              <div key={shoeColorIndex} className="collections">
+                                <label>{shoeColor.name}</label>
+                                <img
+                                  style={{ cursor: 'pointer' }}
+                                  src={shoeColor.src}
+                                  alt={shoeColor.name}
+                                  value={shoe.color}
+                                  name="color"
+                                  className={
+                                    shoe.color === shoeColor.name
+                                      ? 'active'
+                                      : ''
+                                  }
+                                  onClick={this.handleShoeChange(
+                                    index,
+                                    shoeColorIndex,
+                                    shoeColor.name
+                                  )}
+                                />
+                              </div>
+                            )
+                          })}
+                        </div>
+                        <div className="size">
+                          <label> Size</label>
+                          <input
+                            type="text"
+                            name="size"
+                            value={shoe.size}
+                            onChange={this.handleShoeChange(index)}
+                            placeholder="7 Men EU/43 Women US..."
+                            required
+                          />
+
                         </div>
                         <br />
                         {/* same address checkbox */}
