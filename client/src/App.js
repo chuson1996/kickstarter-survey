@@ -27,11 +27,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { backers, loading, orders } = this.state
+    const { backers, loading } = this.state
     if (loading) {
       return <h1>Loading....</h1>
     }
-    console.log({ backers, orders })
+    console.log({ backers })
     return (
       <Router>
         <div className="App">
