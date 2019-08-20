@@ -85,10 +85,24 @@ select:disabled {
   }
 }
 
+.collections {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.collections:hover {
+  background: lightblue;
+}
+
+.active {
+  background: lightblue;
+}
+
 .color-size {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 70%;
+  margin: auto;
   input,
   select {
     input {

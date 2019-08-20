@@ -6,13 +6,12 @@ import './index.scss'
 import chart from '../../assets/chart.png'
 import measuring_guide from '../../assets/measuring_shoes.gif'
 import ShoeMeasurment from '../ShoeMeasurment'
-import ShoeColors from '../ShoeColors'
 
 import ClassicBlack from '../../assets/ClassicBlack.png'
 import ClassicWhite from '../../assets/ClassicWhite.png'
 import StealthBlack from '../../assets/StealthBlack.png'
 import Blue from '../../assets/Blue.png'
-import Pink from '../../assets/ClassicBlack.png'
+import Pink from '../../assets/Pink.png'
 import RebelBlack from '../../assets/RebelBlack.png'
 import RebelWhite from '../../assets/RebelWhite.png'
 import Red from '../../assets/Red.png'
@@ -67,7 +66,7 @@ class SurveyForm extends Component {
     pledge: 1,
     shoes: [
       {
-        color: 'Classic Black',
+        color: '',
         size: '',
         streetAddress: '',
         city: '',
@@ -104,15 +103,6 @@ class SurveyForm extends Component {
       })
   }
 
-  onImageSelected = (i, name) => {
-    this.setState({
-      activeIndex: i,
-      shoes: this.state.shoes.map(() => ({
-        color: name
-      }))
-    })
-  }
-
   hideShoeMeasuringGuide = () => {
     this.setState({
       hideShoeMeasuringGuide: !this.state.hideShoeMeasuringGuide
@@ -123,7 +113,7 @@ class SurveyForm extends Component {
     this.setState({
       shoes: this.state.shoes.concat([
         {
-          color: 'Classic Black',
+          color: '',
           size: '',
           streetAddress: '',
           city: '',
@@ -146,21 +136,23 @@ class SurveyForm extends Component {
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.value
     const name = target.name
-
     this.setState({
       [name]: value
     })
   }
 
-  handleShoeChange = i => e => {
+  handleShoeChange = (i, shoeColorIndex, shoeName) => e => {
+    console.log({ i, shoeColorIndex, shoeName })
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.value
+
     const name = target.name
+    console.log({ name, value })
     const newShoes = this.state.shoes.map((shoe, sidx) => {
       if (i !== sidx) return shoe
       return {
         ...shoe,
-        [name]: value
+        [name]: value || shoeName
       }
     })
     this.setState({
@@ -179,7 +171,8 @@ class SurveyForm extends Component {
           city: shoes[i - 1].city,
           state: shoes[i - 1].state,
           zipCode: shoes[i - 1].zipCode,
-          sameAddress: true
+          sameAddress: true,
+          selected: true
         }
       } else {
         return {
@@ -188,7 +181,8 @@ class SurveyForm extends Component {
           city: '',
           state: '',
           zipCode: '',
-          sameAddress: false
+          sameAddress: false,
+          selected: true
         }
       }
     })
@@ -258,7 +252,7 @@ class SurveyForm extends Component {
       return <Redirect to="/" />
     }
 
-    console.log({ shoes })
+    console.log('stae', shoes)
     return (
       <>
         {!fillTheForm && (
@@ -355,10 +349,30 @@ class SurveyForm extends Component {
                       <div key={index} className="delivery-items">
                         <h3>Pick Your Color and Size {`#${index + 1}`}</h3>
                         <div className="color-size">
-                          <ShoeColors
-                            shoeColors={shoeColors}
-                            handleClick={this.onImageSelected}
-                          />
+                          {shoeColors.map((shoeColor, shoeColorIndex) => {
+                            return (
+                              <div key={shoeColorIndex} className="collections">
+                                <label>{shoeColor.name}</label>
+                                <img
+                                  style={{ cursor: 'pointer' }}
+                                  src={shoeColor.src}
+                                  alt={shoeColor.name}
+                                  value={shoe.color}
+                                  name="color"
+                                  className={
+                                    shoe.color === shoeColor.name
+                                      ? 'active'
+                                      : ''
+                                  }
+                                  onClick={this.handleShoeChange(
+                                    index,
+                                    shoeColorIndex,
+                                    shoeColor.name
+                                  )}
+                                />
+                              </div>
+                            )
+                          })}
                         </div>
                         <div className="size">
                           <label> Size</label>

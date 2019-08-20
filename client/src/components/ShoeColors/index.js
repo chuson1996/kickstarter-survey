@@ -2,7 +2,7 @@ import React from 'react'
 
 class ShoeColors extends React.Component {
   render() {
-    const { shoeColors, handleClick } = this.props
+    const { shoeColors, handleShoeChange } = this.props
 
     return (
       <>
@@ -15,7 +15,7 @@ class ShoeColors extends React.Component {
                 alt={shoe.name}
                 value={shoe.name}
                 name={shoe.name}
-                onClick={() => handleClick(shoe.name)}
+                onChange={() => handleShoeChange(i, shoe.name)}
               />
             </div>
           )
