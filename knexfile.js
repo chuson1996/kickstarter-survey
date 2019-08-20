@@ -26,5 +26,21 @@ module.exports = {
     seeds: {
       directory: __dirname + '/knex/seeds'
     }
+  },
+  production2: {
+    client: 'pg',
+    connection: {
+      user: 'rensoriginal',
+      password: 'coffeeshoeisreal',
+      host: '35.232.25.117',
+      database: 'rens'
+    },
+
+    migrations: {
+      directory: __dirname + '/knex/migrations'
+    },
+    seeds: {
+      directory: __dirname + '/knex/seeds'
+    }
   }
 }

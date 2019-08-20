@@ -1,4 +1,4 @@
-// POST DATA ON MAILCHIMP
+// Sync the backer_id from backer table to mailchimp audience backer_id
 
 const knex = require('./knex/kenx')
 const request = require('request')

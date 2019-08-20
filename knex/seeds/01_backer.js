@@ -10,7 +10,8 @@ exports.seed = function(knex) {
         { id: 3, name: 'sabi', email: 'sabi@rensoriginal.com', pledge: 2 },
         { id: 4, name: 'teemu', email: 'teemu@rensoriginal.com', pledge: 3 },
         { id: 5, name: 'neil', email: 'neil@rensoriginal.com', pledge: 2 },
-        { id: 6, name: 'david', email: 'david@rensoriginal.com', pledge: 3 }
+        { id: 6, name: 'david', email: 'david@rensoriginal.com', pledge: 3 },
+        { id: 7, name: 'Son', email: 'son.chu@rensoriginal.com', pledge: 3 }
       ])
     })
 }

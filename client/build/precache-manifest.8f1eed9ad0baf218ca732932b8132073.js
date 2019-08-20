@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0b5144a5e1334bc7db99f7c6d7e20edf",
+    "revision": "38188da4470c9f178740785c3df01717",
     "url": "/index.html"
   },
   {
-    "revision": "022eab19e049585b37d9",
-    "url": "/static/css/main.3b6d8371.chunk.css"
+    "revision": "0d79ebe01644eccddb70",
+    "url": "/static/css/main.c4f4a063.chunk.css"
   },
   {
     "revision": "31a26a34125035fe4815",
     "url": "/static/js/2.2f126f05.chunk.js"
   },
   {
-    "revision": "022eab19e049585b37d9",
-    "url": "/static/js/main.9ecde927.chunk.js"
+    "revision": "0d79ebe01644eccddb70",
+    "url": "/static/js/main.108b8de4.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -62,5 +62,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ea81012e79fcf8b166b7f6ca71a7bfb3",
     "url": "/static/media/measuring_shoes.ea81012e.gif"
+  },
+  {
+    "revision": "c5458083e92231aa541254f05b6b4fa5",
+    "url": "/static/media/rens.c5458083.gif"
   }
 ]);

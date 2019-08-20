@@ -50,8 +50,8 @@ router.post('/', async (req, res) => {
 
     // SendGRid
     const msg = {
-      to: `romieo16@gmail.com`,
-      from: 'romieo16@gmail.com',
+      to: `${order.email}`,
+      from: 'rens@rensoriginal.com',
       subject: 'Thankyou form the survey',
       text: 'and easy to do anywhere, even with Node.js',
       html: `

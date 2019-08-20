@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.3b6d8371.chunk.css",
-    "main.js": "/static/js/main.9ecde927.chunk.js",
-    "main.js.map": "/static/js/main.9ecde927.chunk.js.map",
+    "main.css": "/static/css/main.c4f4a063.chunk.css",
+    "main.js": "/static/js/main.108b8de4.chunk.js",
+    "main.js.map": "/static/js/main.108b8de4.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
     "static/js/2.2f126f05.chunk.js": "/static/js/2.2f126f05.chunk.js",
     "static/js/2.2f126f05.chunk.js.map": "/static/js/2.2f126f05.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.21b9f2a044118195d9fc8864a266ebd4.js": "/precache-manifest.21b9f2a044118195d9fc8864a266ebd4.js",
+    "precache-manifest.8f1eed9ad0baf218ca732932b8132073.js": "/precache-manifest.8f1eed9ad0baf218ca732932b8132073.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.3b6d8371.chunk.css.map": "/static/css/main.3b6d8371.chunk.css.map",
+    "static/css/main.c4f4a063.chunk.css.map": "/static/css/main.c4f4a063.chunk.css.map",
     "static/media/Blue.png": "/static/media/Blue.dab300fc.png",
     "static/media/ClassicBlack.png": "/static/media/ClassicBlack.f3aeebf4.png",
     "static/media/ClassicWhite.png": "/static/media/ClassicWhite.c17c87af.png",
@@ -21,6 +21,7 @@
     "static/media/StealthBlack.png": "/static/media/StealthBlack.d96e86e8.png",
     "static/media/Wanderer.png": "/static/media/Wanderer.b5adc1f8.png",
     "static/media/chart.png": "/static/media/chart.4e73e9d2.png",
-    "static/media/measuring_shoes.gif": "/static/media/measuring_shoes.ea81012e.gif"
+    "static/media/measuring_shoes.gif": "/static/media/measuring_shoes.ea81012e.gif",
+    "static/media/rens.gif": "/static/media/rens.c5458083.gif"
   }
 }

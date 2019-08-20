@@ -224,7 +224,7 @@ class SurveyForm extends Component {
                 <h1 style={{ marginBottom: 0 }}>
                   Please Fill Out This Survey Form
                 </h1>
-                <p style={{ color: 'blue', marginTop: 1 }}>
+                <p style={{ color: 'red', marginTop: 1 }}>
                   All Fields Are Required
                 </p>
 
@@ -285,13 +285,7 @@ class SurveyForm extends Component {
                     </select>
                     <br />
                   </div>
-                  <a
-                    href="http://www.rensoriginal.com"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    Check Our Website To See The Colors
-                  </a>
+
                   {/* Add more address and shoes fields for backers with more than one pledge */}
                   {shoes.map((shoe, index) => {
                     return (
