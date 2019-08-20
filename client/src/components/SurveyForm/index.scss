@@ -6,19 +6,6 @@ button.add-color.none {
   display: none;
 }
 
-// input[type='text'],
-// input[type='email'],
-// input[type='number'] {
-//   width: 20%;
-//   padding: 12px 20px;
-//   margin: 8px 0;
-//   display: inline-block;
-//   border: 1px solid #ccc;
-//   border-radius: 4px;
-//   box-sizing: border-box;
-//   font-size: 16px;
-// }
-
 input[type='email']:disabled {
   background: #dddddd;
 }
@@ -85,22 +72,14 @@ select:disabled {
   }
 }
 
-.collections {
-  display: flex;
-  flex-direction: column-reverse;
-}
-.collections:hover {
-  background: lightblue;
-}
-
 .active {
   background: lightblue;
 }
 
-
 .color-size {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   width: 70%;
   margin: auto;
   input,
@@ -117,13 +96,20 @@ select:disabled {
     }
   }
 
+  .collections {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .collections:hover {
+    background: lightblue;
+  }
+
   .color {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 20px;
     select {
-      // width: 100%;
       padding: 12px 20px;
       margin: 8px 0;
       display: inline-block;
