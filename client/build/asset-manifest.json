@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3b6d8371.chunk.css",
+    "main.js": "/static/js/main.43896585.chunk.js",
+    "main.js.map": "/static/js/main.43896585.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.2f126f05.chunk.js": "/static/js/2.2f126f05.chunk.js",
+    "static/js/2.2f126f05.chunk.js.map": "/static/js/2.2f126f05.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e4769362d80a8e3299b494a40fdcf7ce.js": "/precache-manifest.e4769362d80a8e3299b494a40fdcf7ce.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.3b6d8371.chunk.css.map": "/static/css/main.3b6d8371.chunk.css.map",
+    "static/media/Blue.png": "/static/media/Blue.dab300fc.png",
+    "static/media/ClassicBlack.png": "/static/media/ClassicBlack.f3aeebf4.png",
+    "static/media/ClassicWhite.png": "/static/media/ClassicWhite.c17c87af.png",
+    "static/media/Pink.png": "/static/media/Pink.977f01bf.png",
+    "static/media/RebelBlack.png": "/static/media/RebelBlack.bd3eb6bf.png",
+    "static/media/RebelWhite.png": "/static/media/RebelWhite.66a9d94d.png",
+    "static/media/Red.png": "/static/media/Red.5cee1162.png",
+    "static/media/StealthBlack.png": "/static/media/StealthBlack.d96e86e8.png",
+    "static/media/Wanderer.png": "/static/media/Wanderer.b5adc1f8.png",
+    "static/media/chart.png": "/static/media/chart.4e73e9d2.png",
+    "static/media/measuring_shoes.gif": "/static/media/measuring_shoes.ea81012e.gif"
+  }
+}
