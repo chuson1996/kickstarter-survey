@@ -6,57 +6,8 @@ import './index.scss'
 import chart from '../../assets/chart.png'
 import measuring_guide from '../../assets/measuring_shoes.gif'
 import ShoeMeasurment from '../ShoeMeasurment'
-
-import ClassicBlack from '../../assets/ClassicBlack.png'
-import ClassicWhite from '../../assets/ClassicWhite.png'
-import StealthBlack from '../../assets/StealthBlack.png'
-import Blue from '../../assets/Blue.png'
-import Pink from '../../assets/Pink.png'
-import RebelBlack from '../../assets/RebelBlack.png'
-import RebelWhite from '../../assets/RebelWhite.png'
-import Red from '../../assets/Red.png'
-import Wanderer from '../../assets/Wanderer.png'
-
 import './index.scss'
-
-const shoeColors = [
-  {
-    name: 'Classic Black',
-    src: ClassicBlack
-  },
-  {
-    name: 'Classic White',
-    src: ClassicWhite
-  },
-  {
-    name: 'Stealth Black',
-    src: StealthBlack
-  },
-  {
-    name: 'Rebel Black',
-    src: RebelBlack
-  },
-  {
-    name: 'Rebel White',
-    src: RebelWhite
-  },
-  {
-    name: 'Blue',
-    src: Blue
-  },
-  {
-    name: 'Pink',
-    src: Pink
-  },
-  {
-    name: 'Red',
-    src: Red
-  },
-  {
-    name: 'Wanderer',
-    src: Wanderer
-  }
-]
+import { shoeColors } from '../../shoes'
 
 class SurveyForm extends Component {
   state = {
@@ -142,12 +93,10 @@ class SurveyForm extends Component {
   }
 
   handleShoeChange = (i, shoeColorIndex, shoeName) => e => {
-    console.log({ i, shoeColorIndex, shoeName })
     const target = e.target
     const value = target.type === 'checkbox' ? target.checked : target.value
 
     const name = target.name
-    console.log({ name, value })
     const newShoes = this.state.shoes.map((shoe, sidx) => {
       if (i !== sidx) return shoe
       return {
