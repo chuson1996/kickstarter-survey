@@ -18,15 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //survey routes
 
-app.use(express.static('client/build'))
-
 app.use('/api/v1/order', order)
 app.use('/api/v1/delivery', delivery)
 app.use('/api/v1/backer', backer)
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
-})
+app.use(express.static(__dirname + '/client/build'))
 
 const PORT = 5000
 app.listen(PORT, () => {

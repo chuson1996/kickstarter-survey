@@ -15,11 +15,11 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      user: 'rensoriginal',
-      password: 'coffeeshoeisreal',
+      user: JSON.stringify(process.env.DB_USER),
+      password: JSON.stringify(process.env.DB_PASSWORD),
       port: '5432',
-      host: '35.232.25.117',
-      database: 'rens'
+      host: JSON.stringify(process.env.DB_HOST),
+      database: JSON.stringify(process.env.DB_NAME)
     },
 
     migrations: {

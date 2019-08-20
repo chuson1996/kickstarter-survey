@@ -6,6 +6,7 @@ import './index.scss'
 import chart from '../../assets/chart.png'
 import measuring_guide from '../../assets/measuring_shoes.gif'
 import ShoeMeasurment from '../ShoeMeasurment'
+
 import './index.scss'
 import { shoeColors } from '../../shoes'
 
@@ -192,16 +193,15 @@ class SurveyForm extends Component {
       shoes,
       displayForm,
       error,
-      invalidBackerId,
       hideShoeMeasuringGuide,
+      invalidBackerId,
       shoeMeasured,
       fillTheForm
     } = this.state
     if (invalidBackerId === 404) {
       return <Redirect to="/" />
     }
-
-    console.log('stae', shoes)
+      
     return (
       <>
         {!fillTheForm && (
@@ -298,6 +298,7 @@ class SurveyForm extends Component {
                       <div key={index} className="delivery-items">
                         <h3>Pick Your Color and Size {`#${index + 1}`}</h3>
                         <div className="color-size">
+
                           {shoeColors.map((shoeColor, shoeColorIndex) => {
                             return (
                               <div key={shoeColorIndex} className="collections">
@@ -333,6 +334,7 @@ class SurveyForm extends Component {
                             placeholder="7 Men EU/43 Women US..."
                             required
                           />
+
                         </div>
                         <br />
                         {/* same address checkbox */}

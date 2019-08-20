@@ -4,12 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "deploy": "now -e db_user=@d@db_user db_password=@db_password db_host=@db_host db_name=@db_name",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "rollback": "knex migrate:rollback --all"
+    "rollback": "knex migrate:rollback --all",
+    "deploy": "now --public"
   },
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",

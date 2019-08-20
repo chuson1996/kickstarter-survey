@@ -97,9 +97,9 @@ select:disabled {
   background: lightblue;
 }
 
+
 .color-size {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   width: 70%;
   margin: auto;
@@ -136,8 +136,7 @@ select:disabled {
   .size {
     display: flex;
     flex-direction: column;
-    width: 20%;
-    margin: auto;
+    align-items: center;
     input {
       // width: 100%;
       padding: 12px 20px;
