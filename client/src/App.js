@@ -12,13 +12,13 @@ class App extends React.Component {
     loading: true
   }
   componentDidMount() {
-    axios.get('http://localhost:5000/api/v1/backer').then(res => {
+    axios.get('/api/v1/backer').then(res => {
       this.setState({
         backers: res.data,
         loading: false
       })
     })
-    axios.get('http://localhost:5000/api/v1/order/all').then(res => {
+    axios.get('/api/v1/order/all').then(res => {
       this.setState({
         orders: res.data,
         loading: false

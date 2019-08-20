@@ -5,8 +5,12 @@ const knex = require('../../knex/kenx')
 // const backersToMailChimp = require('../../mailchimp')
 
 router.get('/', async (req, res) => {
-  const allBackers = await knex('backer').select('*')
-  res.send(allBackers)
+  try {
+    const allBackers = await knex('backer').select('*')
+    res.status(200).send(allBackers)
+  } catch (error) {
+    res.status(500).send({ error })
+  }
 })
 
 router.get('/:id', async (req, res) => {
