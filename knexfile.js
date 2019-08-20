@@ -16,7 +16,7 @@ module.exports = {
     connection: {
       user: 'rensoriginal',
       password: 'coffeeshoeisreal',
-      host: '35.232.25.117',
+      host: '/cloudsql/rens-survey-production:us-central1:rens',
       database: 'rens'
     },
 
