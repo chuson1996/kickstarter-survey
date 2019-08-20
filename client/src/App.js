@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import './App.scss'
 import SurveyForm from './components/SurveyForm'
-import RENS from './assets/rens.gif'
+// import RENS from './assets/rens.gif'
 
 class App extends React.Component {
   state = {
@@ -29,7 +29,7 @@ class App extends React.Component {
 
   render() {
     const { backers, loading } = this.state
-    if (!loading) {
+    if (loading) {
       return <h1 style={{ textAlign: 'center' }}>Loading.....</h1>
     }
     console.log({ backers })
