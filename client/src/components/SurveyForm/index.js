@@ -201,7 +201,7 @@ class SurveyForm extends Component {
     if (invalidBackerId === 404) {
       return <Redirect to="/" />
     }
-      
+
     return (
       <>
         {!fillTheForm && (
@@ -298,13 +298,12 @@ class SurveyForm extends Component {
                       <div key={index} className="delivery-items">
                         <h3>Pick Your Color and Size {`#${index + 1}`}</h3>
                         <div className="color-size">
-
                           {shoeColors.map((shoeColor, shoeColorIndex) => {
                             return (
                               <div key={shoeColorIndex} className="collections">
                                 <label>{shoeColor.name}</label>
                                 <img
-                                  style={{ cursor: 'pointer' }}
+                                  style={{ cursor: 'pointer', height: '250px' }}
                                   src={shoeColor.src}
                                   alt={shoeColor.name}
                                   value={shoe.color}
@@ -334,7 +333,6 @@ class SurveyForm extends Component {
                             placeholder="7 Men EU/43 Women US..."
                             required
                           />
-
                         </div>
                         <br />
                         {/* same address checkbox */}
