@@ -11,11 +11,13 @@ const ShoeMeasurment = ({
 }) => {
   return (
     <>
-      <h1>Measuring Shoe Size</h1>
-      <p>
-        Before filling out the survey form, please check these instructions how
-        to measure your shoe size
-      </p>
+      <div style={{ textAlign: 'center' }} className="header">
+        <h1>Measuring Shoe Size</h1>
+        <p>
+          Before filling out the survey form, please check these instructions
+          how to measure your shoe size
+        </p>
+      </div>
       <div className={showHide ? 'shoe_measurment none' : 'shoe_measurment'}>
         <img
           style={{ height: '600px' }}
@@ -37,7 +39,14 @@ const ShoeMeasurment = ({
             Yes, I have Measured My Shoe Size
           </label>
         </div>
-        <button onClick={handleShoeMeasured}>Let Me Fill The Form</button>
+        <div className="col-md-6 mb-3">
+          <button
+            onClick={handleShoeMeasured}
+            className="btn btn-primary btn-lg btn-block"
+          >
+            Let Me Fill The Form
+          </button>
+        </div>
       </div>
     </>
   )
