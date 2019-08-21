@@ -40,45 +40,6 @@ label {
   font-weight: 900;
 }
 
-.order-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  input {
-    width: 40%;
-    @media only screen and (max-width: 749px) {
-      width: 90%;
-      margin: auto;
-    }
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-}
-
-.address {
-  width: 100%;
-  margin: auto;
-  input {
-    width: 40%;
-    @media only screen and (max-width: 749px) {
-      width: 90%;
-      margin: auto;
-    }
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-}
-
 .active {
   background: lightblue;
 }
@@ -111,73 +72,4 @@ label {
   .collections:hover {
     background: lightblue;
   }
-
-  .color {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 20px;
-    select {
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-  }
-}
-
-.size {
-  display: flex;
-  flex-direction: column;
-  margin: 5rem auto 0 auto;
-  align-items: center;
-  input {
-    width: 40%;
-    @media only screen and (max-width: 749px) {
-      width: 90%;
-      margin: auto;
-    }
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-}
-
-.address {
-  .street,
-  .state,
-  .city,
-  .code {
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-    align-items: center;
-  }
-}
-
-button {
-  height: 40px;
-  width: 16rem;
-  border-radius: 15px;
-  background: #75e442;
-  font-size: 16px;
-  cursor: pointer;
-  color: #111111;
-  outline: none;
-  margin-right: 10px;
-}
-button:hover {
-  background: rgb(107, 177, 67);
-  color: white;
-}
-
-.buttons {
-  margin-top: 2rem;
 }
