@@ -1,5 +1,6 @@
 {
   "files": {
+
     "main.css": "/static/css/main.fd995868.chunk.css",
     "main.js": "/static/js/main.35a2fc9d.chunk.js",
     "main.js.map": "/static/js/main.35a2fc9d.chunk.js.map",
@@ -13,6 +14,7 @@
     "service-worker.js": "/service-worker.js",
     "static/css/2.22a7d4ef.chunk.css.map": "/static/css/2.22a7d4ef.chunk.css.map",
     "static/css/main.fd995868.chunk.css.map": "/static/css/main.fd995868.chunk.css.map",
+
     "static/media/Blue.png": "/static/media/Blue.dab300fc.png",
     "static/media/ClassicBlack.png": "/static/media/ClassicBlack.f3aeebf4.png",
     "static/media/ClassicWhite.png": "/static/media/ClassicWhite.c17c87af.png",

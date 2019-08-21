@@ -44,10 +44,33 @@ label {
   background: lightblue;
 }
 
+.size {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 5rem auto 0 auto;
+  input {
+    // width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+}
+
+.active {
+  background: lightblue;
+}
+
 .color-size {
   display: flex;
+
   justify-content: flex-start;
   flex-wrap: wrap;
+
   input,
   select {
     input {
@@ -63,8 +86,10 @@ label {
   }
 
   .collections {
+
     display: flex;
     flex-direction: column-reverse;
+
     display: flex;
     flex-direction: column-reverse;
     text-align: center;

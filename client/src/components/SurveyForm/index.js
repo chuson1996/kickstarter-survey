@@ -6,6 +6,7 @@ import './index.scss'
 import chart from '../../assets/chart.png'
 import measuringGuide from '../../assets/measuring_shoes.gif'
 import ShoeMeasurment from '../ShoeMeasurment'
+
 import { shoeColors } from '../../shoes'
 import SurveyFormHeader from '../SurveyFormHeader'
 
@@ -37,6 +38,7 @@ class SurveyForm extends Component {
       fillTheForm: false,
       hideShoeMeasuringGuide: false
     }
+
   }
 
   componentDidMount() {
@@ -91,11 +93,14 @@ class SurveyForm extends Component {
   handleChange = e => {
     const { target } = e
     const value = target.type === 'checkbox' ? target.checked : target.value
+
     const { name } = target
+
     this.setState({
       [name]: value
     })
   }
+
 
   handleShoeChange = (i, shoeName) => e => {
     const { target } = e
@@ -103,6 +108,7 @@ class SurveyForm extends Component {
     const { name } = target
     const { shoes } = this.state
     const newShoes = shoes.map((shoe, sidx) => {
+
       if (i !== sidx) return shoe
       return {
         ...shoe,
@@ -126,7 +132,8 @@ class SurveyForm extends Component {
           city: shoes[i - 1].city,
           state: shoes[i - 1].state,
           zipCode: shoes[i - 1].zipCode,
-          sameAddress: true
+          sameAddress: true,
+          selected: true
         }
       } else {
         return {
@@ -135,7 +142,8 @@ class SurveyForm extends Component {
           city: '',
           state: '',
           zipCode: '',
-          sameAddress: false
+          sameAddress: false,
+          selected: true
         }
       }
     })
@@ -344,7 +352,8 @@ class SurveyForm extends Component {
                               value={shoe.size}
                               onChange={this.handleShoeChange(index)}
                               placeholder="7 Men EU/43 Women US..."
-                              required=""
+                              required
+
                             />
                           </div>
 
