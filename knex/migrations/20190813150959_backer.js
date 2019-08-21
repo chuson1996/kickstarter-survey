@@ -1,4 +1,5 @@
-//backer migrate
+/* eslint-disable func-names */
+// backer migrate
 exports.up = function(knex) {
   return knex.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"').then(() => {
     return knex.schema.createTable('backer', function(table) {

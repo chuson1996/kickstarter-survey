@@ -1,4 +1,5 @@
-//order delivery migrate
+/* eslint-disable func-names */
+// order delivery migrate
 exports.up = function(knex) {
   return knex.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"').then(() => {
     return knex.schema
@@ -6,7 +7,7 @@ exports.up = function(knex) {
         table
           .uuid('o_id')
           .primary()
-          .defaultTo(knex.raw('uuid_generate_v4()')) //to generate default uuid
+          .defaultTo(knex.raw('uuid_generate_v4()')) // to generate default uuid
         table.string('name', 255).notNullable()
         table
           .string('email', 255)

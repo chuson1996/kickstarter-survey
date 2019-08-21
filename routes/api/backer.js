@@ -1,8 +1,7 @@
 const express = require('express')
+
 const router = express.Router()
 const knex = require('../../knex/kenx')
-
-// const backersToMailChimp = require('../../mailchimp')
 
 router.get('/', async (req, res) => {
   try {

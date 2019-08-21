@@ -3,25 +3,22 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 import './App.scss'
 import SurveyForm from './components/SurveyForm'
-// import RENS from './assets/rens.gif'
+import Error404 from './components/Error404'
+import rensLoading from './assets/rens.gif'
 
 class App extends React.Component {
-  state = {
-    orders: [],
-    deliveries: [],
-    backers: [],
-    loading: true
+  constructor(props) {
+    super(props)
+    this.state = {
+      backers: [],
+      loading: true
+    }
   }
+
   componentDidMount() {
-    axios.get('/api/v1/backer').then(res => {
+    axios.get('http://localhost:5000/api/v1/backer').then(res => {
       this.setState({
         backers: res.data,
-        loading: false
-      })
-    })
-    axios.get('/api/v1/order/all').then(res => {
-      this.setState({
-        orders: res.data,
         loading: false
       })
     })
@@ -30,7 +27,11 @@ class App extends React.Component {
   render() {
     const { backers, loading } = this.state
     if (loading) {
-      return <h1 style={{ textAlign: 'center' }}>Loading.....</h1>
+      return (
+        <div className="loading">
+          <img style={{ height: 250 }} src={rensLoading} alt="rens loading" />
+        </div>
+      )
     }
     console.log({ backers })
     return (
@@ -42,7 +43,7 @@ class App extends React.Component {
               path="/:id"
               render={props => <SurveyForm {...props} backers={backers} />}
             />
-            <Route render={() => <h1>404</h1>} />
+            <Route render={() => <Error404 />} />
           </Switch>
         </div>
       </Router>

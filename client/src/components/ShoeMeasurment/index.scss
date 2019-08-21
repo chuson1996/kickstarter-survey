@@ -1,0 +1,9 @@
+.shoe_measurment {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 1rem auto;
+  @media only screen and (max-width: 749px) {
+    width: 100%;
+  }
+}

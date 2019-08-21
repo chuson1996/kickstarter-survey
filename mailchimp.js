@@ -1,7 +1,7 @@
 // Sync the backer_id from backer table to mailchimp audience backer_id
 
-const knex = require('./knex/kenx')
 const request = require('request')
+const knex = require('./knex/kenx')
 
 knex('backer')
   .select('*')
@@ -29,7 +29,7 @@ knex('backer')
       body: postData
     }
 
-    request(options, (err, response, body) => {
+    request(options, (err, response) => {
       console.log(response.statusCode, { err }, { options })
       if (err) {
         console.log({ err })

@@ -4,10 +4,8 @@ import axios from 'axios'
 import './index.scss'
 
 import chart from '../../assets/chart.png'
-import measuring_guide from '../../assets/measuring_shoes.gif'
+import measuringGuide from '../../assets/measuring_shoes.gif'
 import ShoeMeasurment from '../ShoeMeasurment'
-
-import './index.scss'
 import { shoeColors } from '../../shoes'
 
 class SurveyForm extends Component {
@@ -28,7 +26,6 @@ class SurveyForm extends Component {
       }
     ],
     displayForm: true,
-    backer_id: '',
     error: {
       email_error: '',
       invalidBackerId: null
@@ -40,10 +37,10 @@ class SurveyForm extends Component {
 
   componentDidMount() {
     axios
-      .get(`/api/v1/backer/${this.props.match.params.id}`)
+      // eslint-disable-next-line react/destructuring-assignment
+      .get(`http://localhost:5000/api/v1/backer/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
-          backer_id: res.data.map(id => id.backer_id)[0],
           email: res.data.map(email => email.email)[0],
           pledge: res.data.map(pledge => pledge.pledge)[0]
         })
@@ -55,15 +52,17 @@ class SurveyForm extends Component {
       })
   }
 
-  hideShoeMeasuringGuide = () => {
+  handleHideShoeMeasuringGuide = () => {
+    const { hideShoeMeasuringGuide } = this.state
     this.setState({
-      hideShoeMeasuringGuide: !this.state.hideShoeMeasuringGuide
+      hideShoeMeasuringGuide: !hideShoeMeasuringGuide
     })
   }
 
   handleAddAnotherColor = () => {
+    const { shoes } = this.state
     this.setState({
-      shoes: this.state.shoes.concat([
+      shoes: shoes.concat([
         {
           color: '',
           size: '',
@@ -77,7 +76,8 @@ class SurveyForm extends Component {
   }
 
   handleShoeMeasured = () => {
-    if (this.state.shoeMeasured) {
+    const { shoeMeasured } = this.state
+    if (shoeMeasured) {
       this.setState({
         fillTheForm: true
       })
@@ -85,20 +85,20 @@ class SurveyForm extends Component {
   }
 
   handleChange = e => {
-    const target = e.target
+    const { target } = e
     const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
+    const { name } = target
     this.setState({
       [name]: value
     })
   }
 
-  handleShoeChange = (i, shoeColorIndex, shoeName) => e => {
-    const target = e.target
+  handleShoeChange = (i, shoeName) => e => {
+    const { target } = e
     const value = target.type === 'checkbox' ? target.checked : target.value
-
-    const name = target.name
-    const newShoes = this.state.shoes.map((shoe, sidx) => {
+    const { name } = target
+    const { shoes } = this.state
+    const newShoes = shoes.map((shoe, sidx) => {
       if (i !== sidx) return shoe
       return {
         ...shoe,
@@ -110,6 +110,7 @@ class SurveyForm extends Component {
     })
   }
 
+  // eslint-disable-next-line no-unused-vars
   copyAddress = i => e => {
     const { shoes } = this.state
     const sameAddress = shoes.map((shoe, addIndex) => {
@@ -121,8 +122,7 @@ class SurveyForm extends Component {
           city: shoes[i - 1].city,
           state: shoes[i - 1].state,
           zipCode: shoes[i - 1].zipCode,
-          sameAddress: true,
-          selected: true
+          sameAddress: true
         }
       } else {
         return {
@@ -131,8 +131,7 @@ class SurveyForm extends Component {
           city: '',
           state: '',
           zipCode: '',
-          sameAddress: false,
-          selected: true
+          sameAddress: false
         }
       }
     })
@@ -152,7 +151,7 @@ class SurveyForm extends Component {
     e.preventDefault()
     const { name, country, email, pledge, shoes } = this.state
     try {
-      const orders = await axios.post(`/api/v1/order`, {
+      const orders = await axios.post('http://localhost:5000/api/v1/order', {
         name,
         email,
         country,
@@ -171,7 +170,7 @@ class SurveyForm extends Component {
     this.setState({
       name: '',
       country: '',
-      age: '',
+
       shoes: [
         {
           color: '',
@@ -184,6 +183,7 @@ class SurveyForm extends Component {
       ]
     })
   }
+
   render() {
     const {
       name,
@@ -201,16 +201,16 @@ class SurveyForm extends Component {
     if (invalidBackerId === 404) {
       return <Redirect to="/" />
     }
-
+    console.log({ shoes })
     return (
       <>
         {!fillTheForm && (
           <>
             <ShoeMeasurment
               chart={chart}
-              measuring_guide={measuring_guide}
-              show_hide={hideShoeMeasuringGuide}
-              hideShoeMeasuringGuide={this.hideShoeMeasuringGuide}
+              measuringGuide={measuringGuide}
+              showHide={hideShoeMeasuringGuide}
+              hideShoeMeasuringGuide={this.handleHideShoeMeasuringGuide}
               shoeMeasured={shoeMeasured}
               handleChange={this.handleChange}
               handleShoeMeasured={this.handleShoeMeasured}
@@ -238,7 +238,7 @@ class SurveyForm extends Component {
                       onChange={this.handleChange}
                       placeholder="Aditya Gyawali..."
                       required
-                    />{' '}
+                    />
                     <br />
                     <label>Country:</label>
                     <input
@@ -258,7 +258,7 @@ class SurveyForm extends Component {
                       onChange={this.handleChange}
                       required
                       disabled
-                    />{' '}
+                    />
                     <p
                       className={
                         error.email_error === '' ? 'error none' : 'error'
@@ -268,7 +268,7 @@ class SurveyForm extends Component {
                       {error.email_error}
                     </p>
                     <br />
-                    Number OF Pedges:{' '}
+                    <label>Number OF Pedges:</label>
                     <select
                       name="pledge"
                       value={parseInt(pledge, 10)}
@@ -290,12 +290,15 @@ class SurveyForm extends Component {
                   {shoes.map((shoe, index) => {
                     return (
                       <div key={index} className="delivery-items">
-                        <h3>Pick Your Color and Size {`#${index + 1}`}</h3>
+                        <h3 style={{ color: 'blue' }}>
+                          Pick Your Color and Size
+                          {` #${index + 1}`}
+                        </h3>
                         <div className="color-size">
                           {shoeColors.map((shoeColor, shoeColorIndex) => {
                             return (
                               <div key={shoeColorIndex} className="collections">
-                                <label>{shoeColor.name}</label>
+                                <p>{shoeColor.name}</p>
                                 <img
                                   style={{ cursor: 'pointer', height: '250px' }}
                                   src={shoeColor.src}
@@ -309,7 +312,6 @@ class SurveyForm extends Component {
                                   }
                                   onClick={this.handleShoeChange(
                                     index,
-                                    shoeColorIndex,
                                     shoeColor.name
                                   )}
                                 />
@@ -336,14 +338,16 @@ class SurveyForm extends Component {
                               id="sameAddress"
                               type="checkbox"
                               name="sameAddress"
-                              checked={this.state.sameAddress}
                               onChange={this.copyAddress(index)}
                             />
                             <label>Send This Shoes To Previous Address</label>
                           </div>
                         )}
                         <>
-                          <h3>Address {`#${index + 1}`}</h3>
+                          <h3 style={{ color: 'blue' }}>
+                            Address
+                            {` #${index + 1}`}
+                          </h3>
                           <div className="address">
                             <div className="street">
                               <label>Street Address</label>

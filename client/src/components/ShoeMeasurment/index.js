@@ -1,10 +1,11 @@
 import React from 'react'
+import './index.scss'
 
 const ShoeMeasurment = ({
   handleShoeMeasured,
-  show_hide,
+  showHide,
   chart,
-  measuring_guide,
+  measuringGuide,
   shoeMeasured,
   handleChange
 }) => {
@@ -15,30 +16,29 @@ const ShoeMeasurment = ({
         Before filling out the survey form, please check these instructions how
         to measure your shoe size
       </p>
-      <div className={show_hide ? 'shoe_measurment none' : 'shoe_measurment'}>
+      <div className={showHide ? 'shoe_measurment none' : 'shoe_measurment'}>
         <img
           style={{ height: '600px' }}
-          src={measuring_guide}
+          src={measuringGuide}
           alt="shoe chart"
         />
         <img style={{ height: '600px' }} src={chart} alt="shoe chart" />
       </div>
-      <div className="sameAddress">
-              <input
-                id="shoeMeasured"
-                type="checkbox"
-                name="shoeMeasured"
-                checked={shoeMeasured}
-                onChange={handleChange}
-              />
-              <label> Yes, I have Measured My Shoe Size</label>
-              <button onClick={handleShoeMeasured}>
-                Let Me Fill The Form
-              </button>
-            </div>
-      {/* <button onClick={hideShoeMeasuringGuide}>
-        {show_hide ? 'Show Me How To Measure' : 'I already measured the size'}
-      </button> */}
+      <div className="shoeMeasure">
+        <div style={{ marginBottom: '1rem' }}>
+          <input
+            id="shoeMeasured"
+            type="checkbox"
+            name="shoeMeasured"
+            checked={shoeMeasured}
+            onChange={handleChange}
+          />
+          <label style={{ fontWeight: 900, marginLeft: '1rem' }}>
+            Yes, I have Measured My Shoe Size
+          </label>
+        </div>
+        <button onClick={handleShoeMeasured}>Let Me Fill The Form</button>
+      </div>
     </>
   )
 }

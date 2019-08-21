@@ -26,6 +26,7 @@ select {
 
 label {
   margin: 1rem 0;
+  font-weight: 900;
 }
 
 .order-info {
@@ -75,7 +76,10 @@ label {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 70%;
+  width: 60%;
+  @media only screen and (max-width: 749px) {
+    width: 100%;
+  }
   margin: auto;
   input,
   select {
