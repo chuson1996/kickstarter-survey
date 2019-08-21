@@ -48,8 +48,9 @@ router.post('/', async (req, res) => {
       .returning('*')
 
     // SendGRid
+    // todo : use the email of the user that sends the form ==> order.email
     const msg = {
-      to: `${order.email}`,
+      to: 'a@b.com',
       from: 'rens@rensoriginal.com',
       subject: 'Thankyou form the survey',
       html: `
@@ -70,6 +71,7 @@ router.post('/', async (req, res) => {
 })
 
 /*
+TODO:
 // ==> not used now but it's a working code and will be used when, cont..
 // ==> we have dashboard in the front end.
 // ==> Gives all the details about the order made by individual backer

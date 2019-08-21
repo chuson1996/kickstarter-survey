@@ -43,7 +43,7 @@ class SurveyForm extends Component {
   componentDidMount() {
     axios
       // eslint-disable-next-line react/destructuring-assignment
-      .get(`http://localhost:5000/api/v1/backer/${this.props.match.params.id}`)
+      .get(`/api/v1/backer/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
           email: res.data.map(email => email.email)[0],
@@ -146,18 +146,12 @@ class SurveyForm extends Component {
     })
   }
 
-  handleSameAddress = idx => {
-    console.log({ idx })
-    const { shoes } = this.state
-    shoes.filter((shoe, i) => console.log({ shoe, i, idx }))
-  }
-
   handleSubmit = async e => {
     e.preventDefault()
     const { name, country, email, pledge, shoes } = this.state
 
     try {
-      const orders = await axios.post('http://localhost:5000/api/v1/order', {
+      const orders = await axios.post('/api/v1/order', {
         name,
         email,
         country,
@@ -448,7 +442,7 @@ class SurveyForm extends Component {
                         </button>
                       </div>
                       <div className="col-md-6 mb-3">
-                        <button className="btn btn-primary btn-lg btn-block">
+                        <button className="btn btn-success btn-lg btn-block">
                           Submit
                         </button>
                       </div>
@@ -457,7 +451,7 @@ class SurveyForm extends Component {
                 </div>
               </div>
             ) : (
-              <div>
+              <div className="success-msg">
                 <p>Thank Your For Submitting The Form</p>
                 <p>Please Check Your Email</p>
               </div>

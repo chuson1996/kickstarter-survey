@@ -1,19 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "69a56afc8b2bdda67f55d3b9bc6f2427",
+    "revision": "d43f732eb214904ab4eeabeee9bf778c",
     "url": "/index.html"
   },
   {
-    "revision": "33c38dd14da8a7091209",
-    "url": "/static/css/main.635b44f1.chunk.css"
+    "revision": "2abe04262df26e8089a5",
+    "url": "/static/css/2.22a7d4ef.chunk.css"
   },
   {
-    "revision": "7c095354b447741d2d59",
-    "url": "/static/js/2.b3541ed7.chunk.js"
+    "revision": "3eb89e9cda6c19ce127c",
+    "url": "/static/css/main.fd995868.chunk.css"
   },
   {
-    "revision": "33c38dd14da8a7091209",
-    "url": "/static/js/main.92c53b4f.chunk.js"
+    "revision": "2abe04262df26e8089a5",
+    "url": "/static/js/2.e7dd113b.chunk.js"
+  },
+  {
+    "revision": "3eb89e9cda6c19ce127c",
+    "url": "/static/js/main.0f4cbc43.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -62,5 +66,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ea81012e79fcf8b166b7f6ca71a7bfb3",
     "url": "/static/media/measuring_shoes.ea81012e.gif"
+  },
+  {
+    "revision": "6335f9f27df4c1bc0c46ca43c45eb55d",
+    "url": "/static/media/rens.6335f9f2.gif"
   }
 ]);

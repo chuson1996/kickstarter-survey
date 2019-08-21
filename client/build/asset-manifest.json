@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.635b44f1.chunk.css",
-    "main.js": "/static/js/main.92c53b4f.chunk.js",
-    "main.js.map": "/static/js/main.92c53b4f.chunk.js.map",
+    "main.css": "/static/css/main.fd995868.chunk.css",
+    "main.js": "/static/js/main.0f4cbc43.chunk.js",
+    "main.js.map": "/static/js/main.0f4cbc43.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/js/2.b3541ed7.chunk.js": "/static/js/2.b3541ed7.chunk.js",
-    "static/js/2.b3541ed7.chunk.js.map": "/static/js/2.b3541ed7.chunk.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.e7dd113b.chunk.js": "/static/js/2.e7dd113b.chunk.js",
+    "static/js/2.e7dd113b.chunk.js.map": "/static/js/2.e7dd113b.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.4368dada9bb5ba4a23996ce26a10934c.js": "/precache-manifest.4368dada9bb5ba4a23996ce26a10934c.js",
+    "precache-manifest.3fe240113bbee143e49c724800f11f37.js": "/precache-manifest.3fe240113bbee143e49c724800f11f37.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.635b44f1.chunk.css.map": "/static/css/main.635b44f1.chunk.css.map",
+    "static/css/2.22a7d4ef.chunk.css.map": "/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.fd995868.chunk.css.map": "/static/css/main.fd995868.chunk.css.map",
     "static/media/Blue.png": "/static/media/Blue.dab300fc.png",
     "static/media/ClassicBlack.png": "/static/media/ClassicBlack.f3aeebf4.png",
     "static/media/ClassicWhite.png": "/static/media/ClassicWhite.c17c87af.png",
@@ -21,6 +23,7 @@
     "static/media/StealthBlack.png": "/static/media/StealthBlack.d96e86e8.png",
     "static/media/Wanderer.png": "/static/media/Wanderer.b5adc1f8.png",
     "static/media/chart.png": "/static/media/chart.4e73e9d2.png",
-    "static/media/measuring_shoes.gif": "/static/media/measuring_shoes.ea81012e.gif"
+    "static/media/measuring_shoes.gif": "/static/media/measuring_shoes.ea81012e.gif",
+    "static/media/rens.gif": "/static/media/rens.6335f9f2.gif"
   }
 }
