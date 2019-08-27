@@ -9,6 +9,7 @@ import ShoeMeasurment from '../ShoeMeasurment'
 
 import { shoeColors } from '../../shoes'
 import SurveyFormHeader from '../SurveyFormHeader'
+import FirstPage from '../FirstPage'
 
 class SurveyForm extends Component {
   constructor(props) {
@@ -38,15 +39,15 @@ class SurveyForm extends Component {
       fillTheForm: false,
       hideShoeMeasuringGuide: false
     }
-
   }
 
   componentDidMount() {
     axios
       // eslint-disable-next-line react/destructuring-assignment
-      .get(`/api/v1/backer/${this.props.match.params.id}`)
+      .get(`http://localhost:5000/api/v1/backer/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
+          name: res.data.map(name => name.name)[0],
           email: res.data.map(email => email.email)[0],
           pledge: res.data.map(pledge => pledge.pledge)[0]
         })
@@ -101,14 +102,12 @@ class SurveyForm extends Component {
     })
   }
 
-
   handleShoeChange = (i, shoeName) => e => {
     const { target } = e
     const value = target.type === 'checkbox' ? target.checked : target.value
     const { name } = target
     const { shoes } = this.state
     const newShoes = shoes.map((shoe, sidx) => {
-
       if (i !== sidx) return shoe
       return {
         ...shoe,
@@ -158,7 +157,7 @@ class SurveyForm extends Component {
     const { name, country, email, pledge, shoes } = this.state
 
     try {
-      const orders = await axios.post('/api/v1/order', {
+      const orders = await axios.post('http://localhost:5000/api/v1/order', {
         name,
         email,
         country,
@@ -208,12 +207,12 @@ class SurveyForm extends Component {
     if (invalidBackerId === 404) {
       return <Redirect to="/" />
     }
-
+    console.log('shoelength,', this.state)
     return (
       <>
         {!fillTheForm && (
           <>
-            <ShoeMeasurment
+            {/* <ShoeMeasurment
               chart={chart}
               measuringGuide={measuringGuide}
               showHide={hideShoeMeasuringGuide}
@@ -221,7 +220,8 @@ class SurveyForm extends Component {
               shoeMeasured={shoeMeasured}
               handleChange={this.handleChange}
               handleShoeMeasured={this.handleShoeMeasured}
-            />
+            /> */}
+            <FirstPage name={name} pledge={pledge} />
           </>
         )}
         {fillTheForm && (
@@ -353,7 +353,6 @@ class SurveyForm extends Component {
                               onChange={this.handleShoeChange(index)}
                               placeholder="7 Men EU/43 Women US..."
                               required
-
                             />
                           </div>
 
@@ -436,24 +435,23 @@ class SurveyForm extends Component {
                     })}
 
                     <div className="row">
-                      <div
-                        className={`col-md-6 mb-3 ${
-                          parseInt(pledge, 10) <= shoes.length ? 'none' : ''
-                        }`}
-                      >
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-lg btn-block "
-                          onClick={this.handleAddAnotherColor}
-                        >
-                          Add Another Color
-                        </button>
-                      </div>
-                      <div className="col-md-6 mb-3">
-                        <button className="btn btn-success btn-lg btn-block">
-                          Submit
-                        </button>
-                      </div>
+                      {parseInt(pledge, 10) === shoes.length ? (
+                        <div className="col-md-6 mb-3 m-auto">
+                          <button className="btn btn-success btn-lg btn-block">
+                            Submit
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="col-md-6 mb-3 m-auto">
+                          <button
+                            type="button"
+                            className="btn btn-primary btn-lg btn-block "
+                            onClick={this.handleAddAnotherColor}
+                          >
+                            Add Another Color
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </form>
                 </div>

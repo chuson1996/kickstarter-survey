@@ -21,50 +21,59 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, email, country, pledge, shoes } = req.body
+    const {
+      name,
+      email,
+      pledge,
+      country,
+      shoes,
+      address,
+      yourAge,
+      whyRens
+    } = req.body
     console.log('req.body', req.body)
-    const orderInfo = await knex('order')
-      .insert({
-        name,
-        email,
-        country,
-        pledge
-      })
-      .returning('*')
+    // const orderInfo = await knex('order')
+    //   .insert({
+    //     name,
+    //     email,
+    //     country,
+    //     pledge
+    //   })
+    //   .returning('*')
 
-    const order = orderInfo[0]
-    const delivery = await knex('delivery')
-      .insert(
-        shoes.map(shoe => ({
-          color: shoe.color,
-          size: shoe.size,
-          streetAddress: shoe.streetAddress,
-          city: shoe.city,
-          state: shoe.state,
-          zipCode: shoe.zipCode,
-          order_id: order.o_id
-        }))
-      )
-      .returning('*')
+    // const order = orderInfo[0]
+    // const delivery = await knex('delivery')
+    //   .insert(
+    //     shoes.map(shoe => ({
+    //       color: shoe.color,
+    //       size: shoe.size,
+    //       streetAddress: shoe.streetAddress,
+    //       city: shoe.city,
+    //       state: shoe.state,
+    //       zipCode: shoe.zipCode,
+    //       order_id: order.o_id
+    //     }))
+    //   )
+    //   .returning('*')
 
-    // SendGRid
-    // todo : use the email of the user that sends the form ==> order.email
-    const msg = {
-      to: 'a@b.com',
-      from: 'rens@rensoriginal.com',
-      subject: 'Thankyou form the survey',
-      html: `
-      Hello ${order.name}
-      <h1>Thank Your Once Again For Supporting Rens Original</h1>
-          <p>We have received your information</p>
-          <p>If you feel like you there is some error in the form, please contact support@rensoriginal.com</p>
+    // // SendGRid
+    // // todo : use the email of the user that sends the form ==> order.email
+    // const msg = {
+    //   to: 'a@b.com',
+    //   from: 'rens@rensoriginal.com',
+    //   subject: 'Thankyou form the survey',
+    //   html: `
+    //   Hello ${order.name}
+    //   <h1>Thank Your Once Again For Supporting Rens Original</h1>
+    //       <p>We have received your information</p>
+    //       <p>If you feel like you there is some error in the form, please contact support@rensoriginal.com</p>
 
-          BR,
-          Rens Original Team
-          `
-    }
-    sgMail.send(msg)
-    res.status(200).json({ success: true })
+    //       BR,
+    //       Rens Original Team
+    //       `
+    // }
+    // sgMail.send(msg)
+    // res.status(200).json({ success: true })
   } catch (error) {
     res.status(409).json({ error: 'You have already submitted the form' })
   }
@@ -77,13 +86,18 @@ TODO:
 // ==> Gives all the details about the order made by individual backer
 */
 
-// router.get('/all', async (req, res) => {
-//   try {
-//     const allOrder = await knex
-//       .select()
-//       .from('delivery')
-//       .innerJoin('order', 'order.o_id', 'delivery.order_id')
+router.get('/all', async (req, res) => {
+  try {
+    const allOrder = await knex
+      .select()
+      .from('delivery')
+      .innerJoin('order', 'order.o_id', 'delivery.order_id')
 
+    console.log({ allOrder })
+  } catch (error) {
+    console.log({ error })
+  }
+})
 // const modifiedArray = []
 // for (let i = 0; i < allOrder.length; i++) {
 //   let {

@@ -5,6 +5,7 @@ import './App.scss'
 import SurveyForm from './components/SurveyForm'
 import Error404 from './components/Error404'
 import rensLoading from './assets/rens.gif'
+import FirstPage from './components/FirstPage'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,13 +17,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/v1/backer').then(res => {
+    axios.get('http://localhost:5000/api/v1/backer').then(res => {
       this.setState({
         backers: res.data,
         loading: false
       })
     })
-
   }
 
   render() {
@@ -39,6 +39,11 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Switch>
+            {/* <Route
+              exact
+              path="/"
+              render={props => <FirstPage {...props} backers={backers} />}
+            /> */}
             <Route
               exact
               path="/:id"
