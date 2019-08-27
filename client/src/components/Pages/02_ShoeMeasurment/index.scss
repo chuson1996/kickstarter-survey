@@ -1,0 +1,20 @@
+.shoe_measurment {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  margin: 1rem auto;
+  @media only screen and (max-width: 749px) {
+    width: 100%;
+    flex-direction: column;
+  }
+  @media only screen and (min-width: 750px) and (max-width: 1116px) {
+    width: 70%;
+    flex-direction: column;
+  }
+}
+
+.shoeMeasure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

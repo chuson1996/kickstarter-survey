@@ -1,40 +1,8 @@
-button.add-color.none {
-  display: none;
-}
-
-.m-auto {
-  margin: auto;
-}
-
-.error-feedback {
-  width: 100%;
-  margin-top: 0.25rem;
-  font-size: 80%;
-  color: #dc3545;
-}
+@import '../../../assets/styles/mixins';
 
 .none {
   display: none;
 }
-
-input[type='email']:disabled {
-  background: #dddddd;
-}
-
-select:disabled {
-  background: #dddddd;
-}
-
-select {
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
 label {
   margin: 1rem 0;
   font-weight: 900;
@@ -44,10 +12,14 @@ label {
   background: lightblue;
 }
 
+select.gender {
+  width: 30%;
+}
+
 .size {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  align-items: center;
   margin: 5rem auto 0 auto;
   input {
     // width: 100%;
@@ -61,15 +33,12 @@ label {
   }
 }
 
-.active {
-  background: lightblue;
-}
-
 .color-size {
   display: flex;
-
-  justify-content: flex-start;
+  width: 80%;
+  margin: auto;
   flex-wrap: wrap;
+  justify-content: center;
 
   input,
   select {
@@ -86,7 +55,6 @@ label {
   }
 
   .collections {
-
     display: flex;
     flex-direction: column-reverse;
 
@@ -99,6 +67,23 @@ label {
   }
 }
 
-.success-msg {
-  text-align: center;
+.another {
+  margin: auto;
+}
+
+.next {
+  justify-content: center;
+  margin-right: 5px;
+}
+
+@include for-phone {
+  .color-size {
+    width: 100%;
+  }
+}
+
+@include for-tablet {
+  .color-size {
+    width: 90%;
+  }
 }

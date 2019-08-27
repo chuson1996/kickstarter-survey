@@ -21,8 +21,17 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, email, country, pledge, shoes } = req.body
-    console.log('req.body', req.body)
+    const {
+      name,
+      email,
+      country,
+      pledge,
+      shoes,
+      address: { address1, address2, city, state, zipCode, phone },
+      yourAge,
+      whyRens
+    } = req.body
+    console.log('address1', address1)
     const orderInfo = await knex('order')
       .insert({
         name,
@@ -38,10 +47,15 @@ router.post('/', async (req, res) => {
         shoes.map(shoe => ({
           color: shoe.color,
           size: shoe.size,
-          streetAddress: shoe.streetAddress,
-          city: shoe.city,
-          state: shoe.state,
-          zipCode: shoe.zipCode,
+          address1,
+          address2,
+          city,
+          state,
+          zipCode,
+          country,
+          phone,
+          age: yourAge,
+          whyRens,
           order_id: order.o_id
         }))
       )
@@ -49,24 +63,25 @@ router.post('/', async (req, res) => {
 
     // SendGRid
     // todo : use the email of the user that sends the form ==> order.email
-    const msg = {
-      to: 'a@b.com',
-      from: 'rens@rensoriginal.com',
-      subject: 'Thankyou form the survey',
-      html: `
-      Hello ${order.name}
-      <h1>Thank Your Once Again For Supporting Rens Original</h1>
-          <p>We have received your information</p>
-          <p>If you feel like you there is some error in the form, please contact support@rensoriginal.com</p>
+    // const msg = {
+    //   to: 'a@b.com',
+    //   from: 'rens@rensoriginal.com',
+    //   subject: 'Thankyou form the survey',
+    //   html: `
+    //   Hello ${order.name}
+    //   <h1>Thank Your Once Again For Supporting Rens Original</h1>
+    //       <p>We have received your information</p>
+    //       <p>If you feel like you there is some error in the form, please contact support@rensoriginal.com</p>
 
-          BR,
-          Rens Original Team
-          `
-    }
-    sgMail.send(msg)
+    //       BR,
+    //       Rens Original Team
+    //       `
+    // }
+    // sgMail.send(msg)
     res.status(200).json({ success: true })
   } catch (error) {
-    res.status(409).json({ error: 'You have already submitted the form' })
+    console.error({ error })
+    // res.status(409).json({ error: 'You have already submitted the form' })
   }
 })
 

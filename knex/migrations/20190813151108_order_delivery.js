@@ -24,10 +24,16 @@ exports.up = function(knex) {
           .primary()
         table.string('color').notNullable()
         table.string('size').notNullable()
-        table.string('streetAddress').notNullable()
+        table.string('address1').notNullable()
+        table.string('address2').notNullable()
         table.string('city').notNullable()
+        table.string('country').notNullable()
         table.string('state').notNullable()
         table.string('zipCode').notNullable()
+        table.string('phone').notNullable()
+        table.string('age').notNullable()
+        table.string('whyRens').notNullable()
+
         table.uuid('order_id')
         table
           .foreign('order_id')

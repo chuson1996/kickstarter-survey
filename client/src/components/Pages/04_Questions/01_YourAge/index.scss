@@ -1,0 +1,19 @@
+.age {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid;
+  margin: auto;
+
+  .age-para {
+    text-align: center;
+  }
+  .question {
+    margin-left: 1rem;
+
+    label {
+      margin-left: 1rem;
+    }
+  }
+}

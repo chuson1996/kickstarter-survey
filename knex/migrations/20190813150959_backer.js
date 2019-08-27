@@ -7,6 +7,7 @@ exports.up = function(knex) {
       table.uuid('backer_id').defaultTo(knex.raw('uuid_generate_v4()'))
       table.string('name').notNullable()
       table.string('email').notNullable()
+      table.string('country').notNullable()
       table.integer('pledge').notNullable()
     })
   })
