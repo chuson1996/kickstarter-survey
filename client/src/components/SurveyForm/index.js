@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { Component } from 'react'
 import axios from 'axios'
 
@@ -36,7 +37,8 @@ class SurveyForm extends Component {
     yourAge: '',
     whyRens: '',
     shoeMeasured: false,
-    answerQuestion: false
+    answerQuestion: false,
+    other: false
   }
 
   componentDidMount() {
@@ -93,8 +95,6 @@ class SurveyForm extends Component {
       }
     }))
   }
-
-  handleSelectRadioChange = () => {}
 
   handleShoeChange = (i, shoeName) => e => {
     const { target } = e
@@ -175,6 +175,7 @@ class SurveyForm extends Component {
     })
   }
 
+  // eslint-disable-next-line consistent-return
   render() {
     const {
       page,
@@ -187,7 +188,8 @@ class SurveyForm extends Component {
       yourAge,
       whyRens,
       shoeMeasured,
-      answerQuestion
+      answerQuestion,
+      other
     } = this.state
     console.log('stae', this.state)
     const values = {
@@ -209,7 +211,9 @@ class SurveyForm extends Component {
           <FirstPage
             nextPage={this.nextPage}
             handleChange={this.handleChange}
-            values={values}
+            country={country}
+            pledge={pledge}
+            name={name}
           />
         )
       case 2:
@@ -251,6 +255,7 @@ class SurveyForm extends Component {
             prevPage={this.prevPage}
             handleChange={this.handleChange}
             values={values}
+            yourAge={yourAge}
           />
         )
       case 6:
@@ -261,6 +266,7 @@ class SurveyForm extends Component {
             handleChange={this.handleChange}
             values={values}
             whyRens={whyRens}
+            other={other}
           />
         )
       case 7:
@@ -270,7 +276,7 @@ class SurveyForm extends Component {
             prevPage={this.prevPage}
             handleAddressChange={this.handleAddressChange}
             handleChange={this.handleChange}
-            address={this.state.address}
+            address={address}
             values={values}
           />
         )
