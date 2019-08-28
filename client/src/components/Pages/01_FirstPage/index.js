@@ -34,7 +34,7 @@ const FirstPage = ({ nextPage, handleChange, country, pledge, name }) => (
     </div>
     <div className="hello_user">
       <h3>
-        Hi
+        Hi,
         {name}
       </h3>
       <p>

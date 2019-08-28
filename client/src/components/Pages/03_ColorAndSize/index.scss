@@ -74,6 +74,10 @@ select.gender {
 .next {
   justify-content: center;
   margin-right: 5px;
+
+  .none {
+    display: none;
+  }
 }
 
 @include for-phone {

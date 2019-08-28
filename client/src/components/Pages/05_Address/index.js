@@ -7,7 +7,9 @@ const Address = ({
   handleChange,
   handleAddressChange,
   values,
-  isTouched
+  isTouched,
+  validate,
+  handleFocus
 }) => (
   <div>
     {console.log({ isTouched })}
@@ -32,6 +34,8 @@ const Address = ({
           placeholder="Address 1"
           onChange={handleAddressChange('address1')}
           defaultValue={values.address.address1}
+          // validate={validate('address1')}
+          onBlur={handleFocus('address1')}
         />
       </div>
       <div className="mb-3 address2">
@@ -55,6 +59,7 @@ const Address = ({
             placeholder="City"
             onChange={handleAddressChange('city')}
             defaultValue={values.address.city}
+            onBlur={handleFocus('city')}
           />
         </div>
         <div className="mb-3 state">
@@ -66,6 +71,7 @@ const Address = ({
             placeholder="State"
             onChange={handleAddressChange('state')}
             defaultValue={values.address.state}
+            onBlur={handleFocus('state')}
           />
         </div>
       </div>
@@ -93,6 +99,7 @@ const Address = ({
             placeholder="Zip Code"
             onChange={handleAddressChange('zipCode')}
             defaultValue={values.address.zipCode}
+            onBlur={handleFocus('zipCode')}
           />
         </div>
       </div>
@@ -105,6 +112,7 @@ const Address = ({
           placeholder="Phone"
           onChange={handleAddressChange('phone')}
           defaultValue={values.address.phone}
+          onBlur={handleFocus('phone')}
         />
       </div>
     </div>

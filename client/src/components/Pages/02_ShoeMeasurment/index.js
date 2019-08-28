@@ -36,6 +36,7 @@ const ShoeMeasurment = ({ nextPage, prevPage, handleChange, shoeMeasured }) => (
           type="button"
           onClick={shoeMeasured ? nextPage : undefined}
           className="btn  btn-success btn-lg btn-block"
+          disabled={!shoeMeasured}
         >
           Let Me Fill The Form
         </button>

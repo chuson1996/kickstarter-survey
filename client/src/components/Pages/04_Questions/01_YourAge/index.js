@@ -1,58 +1,46 @@
 import React from 'react'
 import './index.scss'
 
-const YourAge = ({ nextPage, prevPage, handleChange }) => (
+const options = [
+  {
+    age: '<25',
+    ageValue: '<25'
+  },
+  {
+    age: '25-35',
+    ageValue: '25-35'
+  },
+  {
+    age: '34-50',
+    ageValue: '34-50'
+  },
+  {
+    age: '>50',
+    ageValue: '>50'
+  },
+  {
+    age: 'I would rather not say',
+    ageValue: 'I would rather not say'
+  }
+]
+
+const YourAge = ({ nextPage, prevPage, handleChange, values, yourAge }) => (
   <div className="age">
+    {console.log('values.yourAge', values.yourAge)}
     <p className="age-para">Select your age group:</p>
     <div className="question">
-      <input
-        name="yourAge"
-        value="< 25"
-        label="< 25"
-        type="radio"
-        onChange={handleChange('yourAge')}
-      />
-      <label>Less than 25</label>
-    </div>
-    <div className="question">
-      <input
-        name="yourAge"
-        value="25-34"
-        label="25-34"
-        type="radio"
-        onChange={handleChange('yourAge')}
-      />
-      <label>25-34</label>
-    </div>
-    <div className="question">
-      <input
-        name="yourAge"
-        value="34-50"
-        label="34-50"
-        type="radio"
-        onChange={handleChange('yourAge')}
-      />
-      <label>34-50</label>
-    </div>
-    <div className="question">
-      <input
-        name="yourAge"
-        value=">50"
-        label=">50"
-        type="radio"
-        onChange={handleChange('yourAge')}
-      />
-      <label>greater than 50</label>
-    </div>
-    <div className="question">
-      <input
-        name="yourAge"
-        value="I would rather not say"
-        label="I would rather not say"
-        type="radio"
-        onChange={handleChange('yourAge')}
-      />
-      <label>I would rather not say</label>
+      {options.map((age, ageIndex) => (
+        <div className="question" key={ageIndex}>
+          <input
+            type="radio"
+            name="yourAge"
+            value={age.age}
+            defaultChecked={yourAge === age.age}
+            onChange={handleChange('yourAge')}
+          />
+          <label>{age.ageValue}</label>
+        </div>
+      ))}
     </div>
 
     <div className="row next">

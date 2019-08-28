@@ -69,15 +69,12 @@ const ColorAndSize = ({
       </button>
     </div>
 
-    <div
-      className={`row next ${
-        parseInt(pledge, 10) !== shoes.length ? 'none' : ''
-      }`}
-    >
+    <div className="row next ">
       <button
         type="button"
         onClick={nextPage}
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+        disabled={parseInt(pledge, 10) !== shoes.length}
       >
         Next Page
       </button>

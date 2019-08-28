@@ -1,98 +1,68 @@
 import React from 'react'
 import './index.scss'
 
+const options = [
+  {
+    whyRens: 'Design',
+    whyRensValue: 'Design'
+  },
+  {
+    whyRens: 'Rens material: recycled coffee + plastic',
+    whyRensValue: 'Rens material: recycled coffee + plastic'
+  },
+  {
+    whyRens: 'Waterproof function',
+    whyRensValue: 'Waterproof function'
+  },
+  {
+    whyRens: 'All of the above',
+    whyRensValue: 'All of the above'
+  }
+]
+
 const WhyRens = ({
   handleChange,
+  handleOtherChange,
   nextPage,
   prevPage,
-  values,
   whyRens,
   other
 }) => (
   <div className="why-rens">
+    {console.log({ other })}
     <p className="why-rens-para">
       What feature of Rens are you most interested in?
     </p>
+    {options.map((rens, rensIndex) => (
+      <div className="question" key={rensIndex}>
+        <input
+          type="radio"
+          name="whyRens"
+          value={rens.whyRens}
+          defaultChecked={whyRens === rens.whyRens}
+          onChange={handleChange('whyRens')}
+        />
+        <label>{rens.whyRensValue}</label>
+      </div>
+    ))}
 
     <div className="question">
-      <input
-        type="radio"
-        name="whyRens"
-        value="Design"
-        label="Design"
-        onChange={handleChange('whyRens')}
-        defaultChecked={values.whyRens}
-      />
-      <label>Design</label>
-    </div>
-    <div className="question">
-      <input
-        type="radio"
-        name="whyRens"
-        value="Rens material: recycled coffee + plastic"
-        label="Rens material: recycled coffee + plastic"
-        onChange={handleChange('whyRens')}
-        defaultChecked={values.whyRens}
-      />
-      <label>Rens material: recycled coffee + plastic</label>
-    </div>
-    <div className="question">
-      <input
-        type="radio"
-        name="whyRens"
-        value="Waterproof function"
-        label="Waterproof function"
-        onChange={handleChange('whyRens')}
-        defaultChecked={values.whyRens}
-      />
-      <label>Waterproof function</label>
-    </div>
-    <div className="question">
-      <input
-        type="radio"
-        name="whyRens"
-        value="All of the above"
-        label="All of the above"
-        onChange={handleChange('whyRens')}
-        defaultChecked={values.whyRens}
-      />
-      <label>All of the above</label>
-    </div>
-    <div className="question">
-      <input
-        type="radio"
-        name="whyRens"
-        label="Other"
-        onChange={handleChange('other')}
-        value="other"
-        defaultChecked={values.whyRens}
-        // className={e.target.value === 'Other' ? 'none' : ''}
-      />
+      <input type="radio" name="other" onChange={handleChange('other')} />
       <label>Other</label>
     </div>
-    {other === 'other' && (
+
+    {other && (
       <div className="another-quetion">
         <textarea
           className="form-control other-text"
           type="textArea"
           name="whyRens"
-          label="Other"
           value={whyRens}
           onChange={handleChange('whyRens')}
           row="3"
-          // defaultChecked={values.whyRens}
         />
       </div>
     )}
-
-    {/* <input
-            type="textArea"
-            name="whyRens"
-            label="Other"
-            onChange={handleChange('whyRens')}
-
-            // className={e.target.value !== 'Other' ? 'none' : ''}
-          /> */}
 
     <div className="row next">
       <button

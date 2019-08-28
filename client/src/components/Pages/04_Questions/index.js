@@ -23,6 +23,7 @@ const Questions = ({ nextPage, prevPage, handleChange, answerQuestion }) => (
         type="button"
         onClick={answerQuestion ? nextPage : undefined}
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+        disabled={!answerQuestion}
       >
         Next Page
       </button>

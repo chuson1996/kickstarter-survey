@@ -34,12 +34,30 @@ class SurveyForm extends Component {
       zipCode: '',
       phone: ''
     },
-    errors: [],
     yourAge: '',
     whyRens: '',
     shoeMeasured: false,
     answerQuestion: false,
-    other: false
+    other: false,
+    errors: {
+      colorError: '',
+      sizeError: '',
+      yourAgeError: '',
+      whyRensError: '',
+      address1Error: '',
+      address2Error: '',
+      cityError: '',
+      stateError: '',
+      zipCodeError: '',
+      phoneError: ''
+    },
+    isTouched: {
+      address1: false,
+      city: false,
+      state: false,
+      zipCode: false,
+      phone: false
+    }
   }
 
   componentDidMount() {
@@ -59,6 +77,44 @@ class SurveyForm extends Component {
           invalidBackerId: err.response.status
         })
       })
+  }
+
+  validate = name => {
+    const { address, errors } = this.state
+
+    if (!address.address1) {
+      errors.address1Error = 'Address cannot be empty'
+    }
+    if (!address.city) {
+      errors.cityError = 'Address cannot be empty'
+    }
+    if (!address.state) {
+      errors.stateError = 'Address cannot be empty'
+    }
+
+    if (errors.address1Error || errors.cityError || errors.sizeError) {
+      this.setState({
+        errors: {
+          address1Error: errors.address1Error,
+          cityError: errors.cityError,
+          stateError: errors.stateError
+        }
+      })
+      return false
+    }
+
+    return true
+  }
+
+  handleFocus = input => e => {
+    console.log({ input })
+    const { isTouched } = this.state
+    this.setState({
+      isTouched: {
+        ...isTouched,
+        [input]: true
+      }
+    })
   }
 
   // Proceed to next step
@@ -81,8 +137,8 @@ class SurveyForm extends Component {
   handleChange = input => e => {
     const { target } = e
     const value = target.type === 'checkbox' ? target.checked : target.value
-
-    this.setState({ [input]: value })
+    if (input === 'other') this.setState({ other: true })
+    this.setState({ [input]: value, other: false })
   }
 
   handleAddressChange = input => e => {
@@ -159,22 +215,6 @@ class SurveyForm extends Component {
       this.setState({ errors: error.response.data.errors })
       // console.log('error', error.response.data.errors)
     }
-
-    this.setState({
-      name: '',
-      country: '',
-
-      shoes: [
-        {
-          color: '',
-          size: '',
-          streetAddress: '',
-          city: '',
-          state: '',
-          zipCode: ''
-        }
-      ]
-    })
   }
 
   // eslint-disable-next-line consistent-return
@@ -191,9 +231,12 @@ class SurveyForm extends Component {
       whyRens,
       shoeMeasured,
       answerQuestion,
-      other
+      other,
+      isTouched,
+      errors
     } = this.state
     console.log('stae', this.state)
+    console.log('errors', errors.address1Error)
     const values = {
       page,
       name,
@@ -266,6 +309,7 @@ class SurveyForm extends Component {
             nextPage={this.nextPage}
             prevPage={this.prevPage}
             handleChange={this.handleChange}
+            handleOtherChange={this.handleOtherChange}
             values={values}
             whyRens={whyRens}
             other={other}
@@ -280,6 +324,9 @@ class SurveyForm extends Component {
             handleChange={this.handleChange}
             address={address}
             values={values}
+            validate={this.validate}
+            isTouched={isTouched}
+            handleFocus={this.handleFocus}
           />
         )
       case 8:
