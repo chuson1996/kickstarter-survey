@@ -6,9 +6,11 @@ const Address = ({
   prevPage,
   handleChange,
   handleAddressChange,
-  values
+  values,
+  isTouched
 }) => (
   <div>
+    {console.log({ isTouched })}
     <div className="address">
       <div className="mb-3 name">
         <label htmlFor="address">Full Name</label>

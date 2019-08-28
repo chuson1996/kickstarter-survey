@@ -30,6 +30,7 @@ const ShoeMeasurment = ({ nextPage, prevPage, handleChange, shoeMeasured }) => (
           Yes, I have Measured My Shoe Size
         </label>
       </div>
+
       <div className="col-lg-3 col-md-4 col-sm-6 mb-3">
         <button
           type="button"

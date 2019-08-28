@@ -34,6 +34,7 @@ class SurveyForm extends Component {
       zipCode: '',
       phone: ''
     },
+    errors: [],
     yourAge: '',
     whyRens: '',
     shoeMeasured: false,
@@ -129,8 +130,8 @@ class SurveyForm extends Component {
     e.preventDefault()
     const {
       name,
-      email,
       pledge,
+      email,
       country,
       shoes,
       address,
@@ -141,8 +142,8 @@ class SurveyForm extends Component {
     try {
       const orders = await axios.post('http://localhost:5000/api/v1/order', {
         name,
-        email,
         country,
+        email,
         pledge,
         shoes,
         address,
@@ -155,7 +156,8 @@ class SurveyForm extends Component {
         })
       }
     } catch (error) {
-      this.setState({ error: { email_error: error.response.data.error } })
+      this.setState({ errors: error.response.data.errors })
+      // console.log('error', error.response.data.errors)
     }
 
     this.setState({
