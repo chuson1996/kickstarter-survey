@@ -9,9 +9,10 @@ const Address = ({
   values,
   isTouched,
   handleFocus
+  // handleSubmit
 }) => (
   <div>
-    {console.log({ isTouched })}
+    {console.log({ values })}
     <div className="address">
       <div className="mb-3 name">
         <label htmlFor="address">Full Name</label>
@@ -117,7 +118,7 @@ const Address = ({
     </div>
     <div className="row next">
       <button
-        type="button"
+        type="submit"
         onClick={nextPage}
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
       >

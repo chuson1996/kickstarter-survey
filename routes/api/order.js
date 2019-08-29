@@ -81,7 +81,7 @@ router.post(
         whyRens
       } = req.body
 
-      const orderInfo = await knex('order')
+      const backerInfo = await knex('backerinfo')
         .insert({
           name,
           email,
@@ -90,24 +90,32 @@ router.post(
         })
         .returning('*')
 
-      const order = orderInfo[0]
-      const delivery = await knex('delivery')
+      const backer = backerInfo[0]
+      console.log({ backer })
+      await knex('shoe')
         .insert(
           shoes.map(shoe => ({
             color: shoe.color,
             size: shoe.size,
-            address1,
-            address2,
-            city,
-            state,
-            zipCode,
-            country,
-            phone,
-            age: yourAge,
-            whyRens,
-            order_id: order.o_id
+            order_id: backer.backerinfo_id
           }))
         )
+        .returning('*')
+      await knex('address')
+        .insert({
+          address1,
+          address2,
+          city,
+          state,
+          zipCode,
+          country,
+          phone,
+          order_id: backer.backerinfo_id
+        })
+        .returning('*')
+
+      await knex('question')
+        .insert({ age: yourAge, whyRens, order_id: backer.backerinfo_id })
         .returning('*')
 
       // SendGRid

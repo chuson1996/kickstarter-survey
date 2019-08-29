@@ -6,7 +6,7 @@ const knex = require('../../knex/kenx')
 router.get('/', (req, res) => {
   knex
     .select('*')
-    .from('delivery')
+    .from('shoe')
     .then(data => {
       if (data.length) {
         res.json(data)

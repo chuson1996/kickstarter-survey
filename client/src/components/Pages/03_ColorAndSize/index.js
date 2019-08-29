@@ -5,15 +5,21 @@ import { shoeColors } from '../../../shoes'
 import { sizingChartMale, sizingChartFemale } from '../../../sizingChart'
 import MenChart from '../../SizingChart/Male'
 
+const invalidShoes = (shoes, pledge) =>
+  shoes.length === pledge &&
+  shoes.every(shoe => shoe.color !== '' && shoe.size !== '')
+
 const ColorAndSize = ({
   nextPage,
   prevPage,
   shoes,
   handleShoeChange,
   handleAddAnotherColor,
-  pledge
+  pledge,
+  values
 }) => (
   <div>
+    {console.log({ values })}
     {shoes.map((shoe, index) => {
       return (
         <div key={index} className="delivery-items">
@@ -89,12 +95,12 @@ const ColorAndSize = ({
       </button>
     </div>
 
-    <div className="row next ">
+    <div className="row next">
       <button
         type="button"
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
         onClick={nextPage}
-        disabled={parseInt(pledge, 10) !== shoes.length}
+        disabled={!invalidShoes(values.shoes, pledge)}
       >
         Next Page
       </button>

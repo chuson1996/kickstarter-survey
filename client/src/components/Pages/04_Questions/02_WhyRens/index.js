@@ -35,7 +35,7 @@ const WhyRens = ({ handleChange, nextPage, prevPage, whyRens }) => (
         <label htmlFor={rens.whyRensValue}>{rens.whyRensValue}</label>
       </div>
     ))}
-
+    {/* when other option is checkd the value should not be other, it should be empty for text area */}
     <div className="question">
       <input
         type="radio"

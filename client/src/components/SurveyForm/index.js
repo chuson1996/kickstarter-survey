@@ -39,25 +39,26 @@ class SurveyForm extends Component {
     shoeMeasured: false,
     answerQuestion: false,
     other: false,
-    errors: {
-      colorError: '',
-      sizeError: '',
-      yourAgeError: '',
-      whyRensError: '',
-      address1Error: '',
-      address2Error: '',
-      cityError: '',
-      stateError: '',
-      zipCodeError: '',
-      phoneError: ''
-    },
-    isTouched: {
-      address1: false,
-      city: false,
-      state: false,
-      zipCode: false,
-      phone: false
-    }
+    errors: []
+    // errors: {
+    //   colorError: '',
+    //   sizeError: '',
+    //   yourAgeError: '',
+    //   whyRensError: '',
+    //   address1Error: '',
+    //   address2Error: '',
+    //   cityError: '',
+    //   stateError: '',
+    //   zipCodeError: '',
+    //   phoneError: ''
+    // },
+    // isTouched: {
+    //   address1: false,
+    //   city: false,
+    //   state: false,
+    //   zipCode: false,
+    //   phone: false
+    // }
   }
 
   componentDidMount() {
@@ -244,7 +245,6 @@ class SurveyForm extends Component {
       errors
     } = this.state
     console.log('stae', this.state)
-    console.log('errors', errors.address1Error)
     const values = {
       page,
       name,
@@ -335,6 +335,7 @@ class SurveyForm extends Component {
             validate={this.validate}
             isTouched={isTouched}
             handleFocus={this.handleFocus}
+            handleSubmit={this.handleSubmit}
           />
         )
       case 8:
