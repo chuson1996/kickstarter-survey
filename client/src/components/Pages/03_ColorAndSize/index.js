@@ -54,7 +54,27 @@ const ColorAndSize = ({
         </div>
       )
     })}
-
+    <div className="preview" style={{ textAlign: 'center' }}>
+      <h4>Preview</h4>
+      {shoes.map((shoePreview, previewIndex) => (
+        <ul key={previewIndex}>
+          {shoes.length > 1 && (
+            <h4>
+              Shoe
+              {previewIndex + 1}
+            </h4>
+          )}
+          <li>
+            <strong>Shoe Name</strong>
+            {shoePreview.color}
+          </li>
+          <li>
+            <strong>Shoe Size</strong>
+            {shoePreview.size}
+          </li>
+        </ul>
+      ))}
+    </div>
     <div
       className={`col-lg-3 col-md-4 col-sm-6 mb-3 another ${
         parseInt(pledge, 10) <= shoes.length ? 'none' : ''
@@ -72,8 +92,8 @@ const ColorAndSize = ({
     <div className="row next ">
       <button
         type="button"
-        onClick={nextPage}
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+        onClick={nextPage}
         disabled={parseInt(pledge, 10) !== shoes.length}
       >
         Next Page

@@ -3,23 +3,18 @@ import './index.scss'
 
 const options = [
   {
-    age: '<25',
     ageValue: '<25'
   },
   {
-    age: '25-35',
     ageValue: '25-35'
   },
   {
-    age: '34-50',
     ageValue: '34-50'
   },
   {
-    age: '>50',
     ageValue: '>50'
   },
   {
-    age: 'I would rather not say',
     ageValue: 'I would rather not say'
   }
 ]
@@ -34,11 +29,12 @@ const YourAge = ({ nextPage, prevPage, handleChange, values, yourAge }) => (
           <input
             type="radio"
             name="yourAge"
-            value={age.age}
-            defaultChecked={yourAge === age.age}
-            onChange={handleChange('yourAge')}
+            id={age.ageValue}
+            value={age.ageValue}
+            defaultChecked={yourAge === age.ageValue}
+            onChange={e => handleChange('yourAge')(e.target.value)}
           />
-          <label>{age.ageValue}</label>
+          <label htmlFor={age.ageValue}>{age.ageValue}</label>
         </div>
       ))}
     </div>

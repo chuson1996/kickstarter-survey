@@ -1,7 +1,12 @@
+@import '../../../assets/styles/mixins';
 .questions {
+  width: 40rem;
+  margin: auto;
+  border: 1px solid;
+  padding: 60px;
   text-align: center;
-  .questions-para {
-  }
-  .questions-input {
+  @include for-phone {
+    width: 100%;
+    padding: 20px;
   }
 }

@@ -1,14 +1,16 @@
+@import '../../../../assets/styles/mixins';
 .why-rens {
-  text-align: left;
+  width: 40rem;
+  margin: auto;
+  padding: 60px;
   display: flex;
   flex-direction: column;
-  width: 50%;
   border: 1px solid;
-  margin: auto;
-
-  .why-rens-para {
-    text-align: center;
+  @include for-phone {
+    width: 100%;
+    padding: 20px;
   }
+
   .question {
     margin-left: 1rem;
 
@@ -16,8 +18,28 @@
       margin-left: 1rem;
     }
   }
-  .other-text {
-    width: 40%;
-    margin-left: 17%;
-  }
 }
+
+// .why-rens {
+//   text-align: left;
+//   display: flex;
+//   flex-direction: column;
+//   width: 50%;
+//   border: 1px solid;
+//   margin: auto;
+
+//   .why-rens-para {
+//     text-align: center;
+//   }
+//   .question {
+//     margin-left: 1rem;
+
+//     label {
+//       margin-left: 1rem;
+//     }
+//   }
+//   .other-text {
+//     width: 40%;
+//     margin-left: 17%;
+//   }
+// }

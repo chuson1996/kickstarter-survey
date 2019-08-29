@@ -22,11 +22,15 @@ const ShoeMeasurment = ({ nextPage, prevPage, handleChange, shoeMeasured }) => (
         <input
           type="checkbox"
           name="shoeMeasured"
-          onChange={handleChange('shoeMeasured')}
+          id="measureShoe"
+          onChange={e => handleChange('shoeMeasured')(e.target.checked)}
           required
           checked={shoeMeasured}
         />
-        <label style={{ fontWeight: 900, marginLeft: '1rem' }}>
+        <label
+          htmlFor="measureShoe"
+          style={{ fontWeight: 900, marginLeft: '1rem' }}
+        >
           Yes, I have Measured My Shoe Size
         </label>
       </div>

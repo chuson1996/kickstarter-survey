@@ -8,7 +8,6 @@ const Address = ({
   handleAddressChange,
   values,
   isTouched,
-  validate,
   handleFocus
 }) => (
   <div>
@@ -21,7 +20,7 @@ const Address = ({
           className="form-control"
           name="name"
           placeholder="Full Name"
-          onChange={handleChange('name')}
+          onChange={e => handleChange('name')(e.target.value)}
           defaultValue={values.name}
         />
       </div>
@@ -32,7 +31,7 @@ const Address = ({
           className="form-control"
           name="address1"
           placeholder="Address 1"
-          onChange={handleAddressChange('address1')}
+          onChange={e => handleAddressChange('address1')(e.target.value)}
           defaultValue={values.address.address1}
           // validate={validate('address1')}
           onBlur={handleFocus('address1')}
@@ -45,7 +44,7 @@ const Address = ({
           className="form-control"
           name="address2"
           placeholder="Address 2"
-          onChange={handleAddressChange('address2')}
+          onChange={e => handleAddressChange('address2')(e.target.value)}
           defaultValue={values.address.address2}
         />
       </div>
@@ -57,7 +56,7 @@ const Address = ({
             className="form-control"
             name="city"
             placeholder="City"
-            onChange={handleAddressChange('city')}
+            onChange={e => handleAddressChange('city')(e.target.value)}
             defaultValue={values.address.city}
             onBlur={handleFocus('city')}
           />
@@ -69,7 +68,7 @@ const Address = ({
             className="form-control"
             name="state"
             placeholder="State"
-            onChange={handleAddressChange('state')}
+            onChange={e => handleAddressChange('state')(e.target.value)}
             defaultValue={values.address.state}
             onBlur={handleFocus('state')}
           />
@@ -81,7 +80,7 @@ const Address = ({
           <select
             className="form-control"
             name="country"
-            onChange={handleChange('country')}
+            onChange={e => handleChange('country')(e.target.value)}
             defaultValue={values.country}
           >
             <option value="">Select a Country</option>
@@ -97,7 +96,7 @@ const Address = ({
             className="form-control"
             name="zipCode"
             placeholder="Zip Code"
-            onChange={handleAddressChange('zipCode')}
+            onChange={e => handleAddressChange('zipCode')(e.target.value)}
             defaultValue={values.address.zipCode}
             onBlur={handleFocus('zipCode')}
           />
@@ -110,7 +109,7 @@ const Address = ({
           className="form-control"
           name="phone"
           placeholder="Phone"
-          onChange={handleAddressChange('phone')}
+          onChange={e => handleAddressChange('phone')(e.target.value)}
           defaultValue={values.address.phone}
           onBlur={handleFocus('phone')}
         />

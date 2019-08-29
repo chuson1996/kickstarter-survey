@@ -125,6 +125,19 @@ class SurveyForm extends Component {
     })
   }
 
+  handleEditAddress = () => {
+    // const { page } = this.state
+    this.setState({
+      page: 7
+    })
+  }
+
+  handleEditShoeColorAndSize = () => {
+    this.setState({
+      page: 3
+    })
+  }
+
   // Go back to prev page
   prevPage = () => {
     const { page } = this.state
@@ -134,16 +147,11 @@ class SurveyForm extends Component {
   }
 
   // Handle fields change
-  handleChange = input => e => {
-    const { target } = e
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    if (input === 'other') this.setState({ other: true })
-    this.setState({ [input]: value, other: false })
+  handleChange = input => value => {
+    this.setState({ [input]: value })
   }
 
-  handleAddressChange = input => e => {
-    const { target } = e
-    const value = target.type === 'checkbox' ? target.checked : target.value
+  handleAddressChange = input => value => {
     this.setState(prevState => ({
       address: {
         // object that we want to update
@@ -335,7 +343,9 @@ class SurveyForm extends Component {
             nextPage={this.nextPage}
             prevPage={this.prevPage}
             handleSubmit={this.handleSubmit}
-            backersInfo={this.state}
+            previewData={this.state}
+            handleEditAddress={this.handleEditAddress}
+            handleEditShoeColorAndSize={this.handleEditShoeColorAndSize}
           />
         )
 

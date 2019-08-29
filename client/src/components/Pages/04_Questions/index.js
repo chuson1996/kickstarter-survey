@@ -11,10 +11,14 @@ const Questions = ({ nextPage, prevPage, handleChange, answerQuestion }) => (
       <input
         type="checkbox"
         name="answerQuestion"
-        onChange={handleChange('answerQuestion')}
+        id="questions"
+        onChange={e => handleChange('answerQuestion')(e.target.checked)}
         defaultChecked={answerQuestion}
       />
-      <label style={{ fontWeight: 900, marginLeft: '1rem' }}>
+      <label
+        htmlFor="questions"
+        style={{ fontWeight: 900, marginLeft: '1rem' }}
+      >
         Sure, Happy To Help
       </label>
     </div>
@@ -22,7 +26,7 @@ const Questions = ({ nextPage, prevPage, handleChange, answerQuestion }) => (
       <button
         type="button"
         onClick={answerQuestion ? nextPage : undefined}
-        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+        className="btn col-lg-3 col-md-4 col-sm-6 btn-success btn-lg"
         disabled={!answerQuestion}
       >
         Next Page
@@ -30,7 +34,7 @@ const Questions = ({ nextPage, prevPage, handleChange, answerQuestion }) => (
       <button
         type="button"
         onClick={prevPage}
-        className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
+        className="btn col-lg-3 col-md-4 col-sm-6   btn-warning btn-lg"
       >
         Previous
       </button>

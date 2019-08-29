@@ -3,33 +3,22 @@ import './index.scss'
 
 const options = [
   {
-    whyRens: 'Design',
     whyRensValue: 'Design'
   },
   {
-    whyRens: 'Rens material: recycled coffee + plastic',
     whyRensValue: 'Rens material: recycled coffee + plastic'
   },
   {
-    whyRens: 'Waterproof function',
     whyRensValue: 'Waterproof function'
   },
   {
-    whyRens: 'All of the above',
     whyRensValue: 'All of the above'
   }
 ]
 
-const WhyRens = ({
-  handleChange,
-  handleOtherChange,
-  nextPage,
-  prevPage,
-  whyRens,
-  other
-}) => (
+const WhyRens = ({ handleChange, nextPage, prevPage, whyRens }) => (
   <div className="why-rens">
-    {console.log({ other })}
+    {console.log({ whyRens })}
     <p className="why-rens-para">
       What feature of Rens are you most interested in?
     </p>
@@ -38,27 +27,34 @@ const WhyRens = ({
         <input
           type="radio"
           name="whyRens"
-          value={rens.whyRens}
-          defaultChecked={whyRens === rens.whyRens}
-          onChange={handleChange('whyRens')}
+          id={rens.whyRensValue}
+          value={rens.whyRensValue}
+          defaultChecked={whyRens === rens.whyRensValue}
+          onChange={e => handleChange('whyRens')(e.target.value)}
         />
-        <label>{rens.whyRensValue}</label>
+        <label htmlFor={rens.whyRensValue}>{rens.whyRensValue}</label>
       </div>
     ))}
 
     <div className="question">
-      <input type="radio" name="other" onChange={handleChange('other')} />
-      <label>Other</label>
+      <input
+        type="radio"
+        name="whyRens"
+        id="other"
+        checked={options.every(option => option.whyRensValue !== whyRens)}
+        onChange={e => handleChange('whyRens')(e.target.value === '')}
+      />
+      <label htmlFor="other">Other</label>
     </div>
 
-    {other && (
+    {options.every(option => option.whyRensValue !== whyRens) && (
       <div className="another-quetion">
         <textarea
           className="form-control other-text"
           type="textArea"
           name="whyRens"
           value={whyRens}
-          onChange={handleChange('whyRens')}
+          onChange={e => handleChange('whyRens')(e.target.value)}
           row="3"
         />
       </div>

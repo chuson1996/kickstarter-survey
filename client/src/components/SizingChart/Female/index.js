@@ -14,7 +14,7 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
           >
             <option>Your Size Please</option>
             {sizingChartFemale.us.map((us, usIndex) => (
-              <option value={`${us} Us Men`} key={usIndex}>
+              <option value={`${us} Us Women`} key={usIndex}>
                 {us}
               </option>
             ))}
@@ -32,7 +32,7 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
           >
             <option>Your Size Please</option>
             {sizingChartFemale.euro.map((euro, euroIndex) => (
-              <option value={`${euro} Euro Men`} key={euroIndex}>
+              <option value={`${euro} Euro Women`} key={euroIndex}>
                 {euro}
               </option>
             ))}
@@ -50,7 +50,7 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
           >
             <option>Your Size Please</option>
             {sizingChartFemale.uk.map((uk, ukIndex) => (
-              <option value={`${uk} Uk Men`} key={ukIndex}>
+              <option value={`${uk} Uk Women`} key={ukIndex}>
                 {uk}
               </option>
             ))}

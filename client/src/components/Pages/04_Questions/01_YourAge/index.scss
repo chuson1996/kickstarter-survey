@@ -1,19 +1,19 @@
+@import '../../../../assets/styles/mixins';
+
 .age {
   text-align: left;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40rem;
+  padding: 60px;
   border: 1px solid;
   margin: auto;
-
-  .age-para {
-    text-align: center;
+  @include for-phone {
+    width: 100%;
+    padding: 20px;
   }
-  .question {
-    margin-left: 1rem;
 
-    label {
-      margin-left: 1rem;
-    }
+  label {
+    margin-left: 1rem;
   }
 }

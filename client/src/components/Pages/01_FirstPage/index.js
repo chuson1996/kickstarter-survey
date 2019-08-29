@@ -51,7 +51,7 @@ const FirstPage = ({ nextPage, handleChange, country, pledge, name }) => (
         <select
           className="form-control country"
           name="country"
-          onChange={handleChange('country')}
+          onChange={e => handleChange('country')(e.target.value)}
         >
           <option defaultValue={country}>{country}</option>
           {allCountries.map((singleCountry, index) => (
