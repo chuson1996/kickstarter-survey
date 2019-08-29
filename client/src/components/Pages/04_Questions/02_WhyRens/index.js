@@ -41,8 +41,10 @@ const WhyRens = ({ handleChange, nextPage, prevPage, whyRens }) => (
         type="radio"
         name="whyRens"
         id="other"
-        checked={options.every(option => option.whyRensValue !== whyRens)}
-        onChange={e => handleChange('whyRens')(e.target.value === '')}
+        defaultChecked={options.every(
+          option => option.whyRensValue !== whyRens
+        )}
+        onChange={e => handleChange('whyRens')(e.target.value)}
       />
       <label htmlFor="other">Other</label>
     </div>

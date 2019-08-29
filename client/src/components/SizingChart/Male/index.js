@@ -31,7 +31,7 @@ const MenChart = ({
               className="form-control mb-5 whichSize"
               defaultValue={shoe.whichSize}
             >
-              <option>Which Size Do You Prefer</option>
+              <option value="">Which Size Do You Prefer</option>
               <option value="us">US</option>
               <option value="euro">EURO</option>
               <option value="uk">UK</option>
@@ -48,7 +48,7 @@ const MenChart = ({
               className="form-control mb-5 whichSize"
               defaultValue={shoe.size}
             >
-              <option>Your Size Please</option>
+              <option value="">Your Size Please</option>
               {sizingChartMale.us.map((us, usIndex) => (
                 <option value={`${us} Us Men`} key={usIndex}>
                   {us}
@@ -66,7 +66,7 @@ const MenChart = ({
               className="form-control mb-5 whichSize"
               defaultValue={shoe.size}
             >
-              <option>Your Size Please</option>
+              <option value="">Your Size Please</option>
               {sizingChartMale.euro.map((euro, euroIndex) => (
                 <option value={`${euro} Euro Men`} key={euroIndex}>
                   {euro}

@@ -64,8 +64,6 @@ router.post(
   async (req, res, next) => {
     try {
       const errors = validationResult(req)
-      console.log('erroros', errors.isEmpty())
-      console.log('req', req.body)
       if (!errors.isEmpty()) {
         res.status(422).json({ errors: errors.array() })
         return

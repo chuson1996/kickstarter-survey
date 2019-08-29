@@ -40,25 +40,6 @@ class SurveyForm extends Component {
     answerQuestion: false,
     other: false,
     errors: []
-    // errors: {
-    //   colorError: '',
-    //   sizeError: '',
-    //   yourAgeError: '',
-    //   whyRensError: '',
-    //   address1Error: '',
-    //   address2Error: '',
-    //   cityError: '',
-    //   stateError: '',
-    //   zipCodeError: '',
-    //   phoneError: ''
-    // },
-    // isTouched: {
-    //   address1: false,
-    //   city: false,
-    //   state: false,
-    //   zipCode: false,
-    //   phone: false
-    // }
   }
 
   componentDidMount() {
@@ -80,50 +61,34 @@ class SurveyForm extends Component {
       })
   }
 
-  validate = name => {
-    const { address, errors } = this.state
-
-    if (!address.address1) {
-      errors.address1Error = 'Address cannot be empty'
-    }
-    if (!address.city) {
-      errors.cityError = 'Address cannot be empty'
-    }
-    if (!address.state) {
-      errors.stateError = 'Address cannot be empty'
-    }
-
-    if (errors.address1Error || errors.cityError || errors.sizeError) {
-      this.setState({
-        errors: {
-          address1Error: errors.address1Error,
-          cityError: errors.cityError,
-          stateError: errors.stateError
-        }
-      })
-      return false
-    }
-
-    return true
-  }
-
-  handleFocus = input => e => {
-    console.log({ input })
-    const { isTouched } = this.state
-    this.setState({
-      isTouched: {
-        ...isTouched,
-        [input]: true
-      }
-    })
-  }
-
   // Proceed to next step
-  nextPage = () => {
-    const { page } = this.state
-    this.setState({
-      page: page + 1
-    })
+  nextPage = async e => {
+    e.preventDefault()
+    const { address, name, page } = this.state
+    console.log({ page })
+    if (page === 7) {
+      try {
+        const onAddressSubmit = await axios.post(
+          'http://localhost:5000/api/v1/address',
+          {
+            address,
+            name
+          }
+        )
+        if (onAddressSubmit.status === 200) {
+          this.setState({
+            page: page + 1,
+            errors: []
+          })
+        }
+      } catch (error) {
+        this.setState({ errors: error.response.data.errors })
+      }
+    } else {
+      this.setState({
+        page: page + 1
+      })
+    }
   }
 
   handleEditAddress = () => {
@@ -222,7 +187,6 @@ class SurveyForm extends Component {
       }
     } catch (error) {
       this.setState({ errors: error.response.data.errors })
-      // console.log('error', error.response.data.errors)
     }
   }
 
@@ -256,7 +220,8 @@ class SurveyForm extends Component {
       yourAge,
       whyRens,
       shoeMeasured,
-      answerQuestion
+      answerQuestion,
+      errors
     }
     switch (page) {
       case 1:
@@ -309,6 +274,7 @@ class SurveyForm extends Component {
             handleChange={this.handleChange}
             values={values}
             yourAge={yourAge}
+            answerQuestion={answerQuestion}
           />
         )
       case 6:
@@ -321,6 +287,7 @@ class SurveyForm extends Component {
             values={values}
             whyRens={whyRens}
             other={other}
+            answerQuestion={answerQuestion}
           />
         )
       case 7:

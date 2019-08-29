@@ -19,6 +19,16 @@ const options = [
   }
 ]
 
+const isAnswered = yourAge => {
+  // eslint-disable-next-line no-lone-blocks
+  {
+    /* yourAge value comes from state ==> if no ageValue(in options) is present in state, it measn that
+    the button is not clicked so disabled is true
+  */
+  }
+  return options.every(option => option.ageValue !== yourAge)
+}
+
 const YourAge = ({ nextPage, prevPage, handleChange, values, yourAge }) => (
   <div className="age">
     {console.log('values.yourAge', values.yourAge)}
@@ -44,6 +54,7 @@ const YourAge = ({ nextPage, prevPage, handleChange, values, yourAge }) => (
         type="button"
         onClick={nextPage}
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+        disabled={isAnswered(values.yourAge)}
       >
         Next Page
       </button>

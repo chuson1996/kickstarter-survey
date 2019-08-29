@@ -6,13 +6,10 @@ const Address = ({
   prevPage,
   handleChange,
   handleAddressChange,
-  values,
-  isTouched,
-  handleFocus
-  // handleSubmit
+  values
 }) => (
   <div>
-    {console.log({ values })}
+    {console.log('errror', values.errors[0])}
     <div className="address">
       <div className="mb-3 name">
         <label htmlFor="address">Full Name</label>
@@ -34,9 +31,10 @@ const Address = ({
           placeholder="Address 1"
           onChange={e => handleAddressChange('address1')(e.target.value)}
           defaultValue={values.address.address1}
-          // validate={validate('address1')}
-          onBlur={handleFocus('address1')}
         />
+        <div className={values.errors[0] === undefined ? 'none' : 'invalid'}>
+          {values.errors[0] === undefined ? null : values.errors[0].msg}
+        </div>
       </div>
       <div className="mb-3 address2">
         <label htmlFor="address">Address 2(Optional)</label>
@@ -59,8 +57,10 @@ const Address = ({
             placeholder="City"
             onChange={e => handleAddressChange('city')(e.target.value)}
             defaultValue={values.address.city}
-            onBlur={handleFocus('city')}
           />
+          <div className={values.errors[0] === undefined ? 'none' : 'invalid'}>
+            {values.errors[2] === undefined ? null : values.errors[2].msg}
+          </div>
         </div>
         <div className="mb-3 state">
           <label htmlFor="address">State</label>
@@ -71,8 +71,10 @@ const Address = ({
             placeholder="State"
             onChange={e => handleAddressChange('state')(e.target.value)}
             defaultValue={values.address.state}
-            onBlur={handleFocus('state')}
           />
+          <div className={values.errors[0] === undefined ? 'none' : 'invalid'}>
+            {values.errors[3] === undefined ? null : values.errors[3].msg}
+          </div>
         </div>
       </div>
       <div className="country-code">
@@ -99,8 +101,10 @@ const Address = ({
             placeholder="Zip Code"
             onChange={e => handleAddressChange('zipCode')(e.target.value)}
             defaultValue={values.address.zipCode}
-            onBlur={handleFocus('zipCode')}
           />
+          <div className={values.errors[0] === undefined ? 'none' : 'invalid'}>
+            {values.errors[4] === undefined ? null : values.errors[4].msg}
+          </div>
         </div>
       </div>
       <div className="mb-3 phone">
@@ -112,8 +116,10 @@ const Address = ({
           placeholder="Phone"
           onChange={e => handleAddressChange('phone')(e.target.value)}
           defaultValue={values.address.phone}
-          onBlur={handleFocus('phone')}
         />
+        <div className={values.errors[0] === undefined ? 'none' : 'invalid'}>
+          {values.errors[5] === undefined ? null : values.errors[5].msg}
+        </div>
       </div>
     </div>
     <div className="row next">
