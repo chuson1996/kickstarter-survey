@@ -16,7 +16,8 @@ const ColorAndSize = ({
   handleShoeChange,
   handleAddAnotherColor,
   pledge,
-  values
+  values,
+  goToFinalpage
 }) => (
   <div>
     {console.log({ values })}
@@ -111,6 +112,15 @@ const ColorAndSize = ({
       >
         Previous
       </button>
+      {values.validAddress && (
+        <button
+          type="button"
+          onClick={goToFinalpage}
+          className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
+        >
+          Go To Preview Page
+        </button>
+      )}
     </div>
   </div>
 )

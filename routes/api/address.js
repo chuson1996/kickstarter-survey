@@ -4,7 +4,7 @@ const router = express.Router()
 
 const { check, validationResult } = require('express-validator')
 
-const knex = require('../../knex/kenx')
+// const knex = require('../../knex/kenx')
 
 router.post(
   '/',
@@ -22,6 +22,10 @@ router.post(
       .not()
       .isEmpty()
       .withMessage('Address cannot be empty'),
+    check('address.address2')
+      .not()
+      .isEmpty()
+      .withMessage('Address cannot be empty'),
     check('address.city')
       .not()
       .isEmpty()
@@ -33,19 +37,19 @@ router.post(
     check('address.zipCode')
       .not()
       .isEmpty()
-      .withMessage('Zipcode cannot be empty'),
+      .withMessage('Zipcode cannot be empty')
+      .isPostalCode('any')
+      .withMessage('Invalid Zip/Postal Code'),
     check('address.phone')
       .not()
       .isEmpty()
       .withMessage('Phone cannot be empty')
-      .isMobilePhone('any')
-      .withMessage('mobile phone is invalid')
+      .matches(/^\+[0-9]{10,14}$/)
+      .withMessage('Invalid Phone')
   ],
   // eslint-disable-next-line consistent-return
   async (req, res) => {
     const errors = validationResult(req)
-    const addressFromClient = req.body.address
-    console.log({ addressFromClient })
     if (!errors.isEmpty()) {
       res.status(422).json({ errors: errors.array() })
       return

@@ -39,7 +39,8 @@ class SurveyForm extends Component {
     shoeMeasured: false,
     answerQuestion: false,
     other: false,
-    errors: []
+    errors: [],
+    validAddress: false
   }
 
   componentDidMount() {
@@ -61,6 +62,13 @@ class SurveyForm extends Component {
       })
   }
 
+  // go to preview page
+  goToFinalpage = () => {
+    this.setState({
+      page: 8
+    })
+  }
+
   // Proceed to next step
   nextPage = async e => {
     e.preventDefault()
@@ -78,7 +86,8 @@ class SurveyForm extends Component {
         if (onAddressSubmit.status === 200) {
           this.setState({
             page: page + 1,
-            errors: []
+            errors: [],
+            validAddress: true
           })
         }
       } catch (error) {
@@ -206,7 +215,8 @@ class SurveyForm extends Component {
       answerQuestion,
       other,
       isTouched,
-      errors
+      errors,
+      validAddress
     } = this.state
     console.log('stae', this.state)
     const values = {
@@ -221,7 +231,8 @@ class SurveyForm extends Component {
       whyRens,
       shoeMeasured,
       answerQuestion,
-      errors
+      errors,
+      validAddress
     }
     switch (page) {
       case 1:
@@ -254,6 +265,7 @@ class SurveyForm extends Component {
             shoes={shoes}
             handleShoeChange={this.handleShoeChange}
             handleAddAnotherColor={this.handleAddAnotherColor}
+            goToFinalpage={this.goToFinalpage}
             pledge={pledge}
           />
         )

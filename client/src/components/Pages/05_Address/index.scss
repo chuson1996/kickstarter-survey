@@ -1,7 +1,14 @@
 .address {
   width: 70%;
   margin: auto;
-
+  .required label {
+    font-weight: bold;
+  }
+  .required label:after {
+    color: #e32;
+    content: ' *';
+    display: inline;
+  }
   .city-state {
     display: flex;
     justify-content: space-between;
@@ -33,5 +40,11 @@
     margin-top: 0.25rem;
     font-size: 80%;
     color: #dc3545;
+  }
+  .phone-helper {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: blue;
   }
 }
