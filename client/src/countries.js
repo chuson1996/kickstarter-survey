@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable quotes */
 export const allCountries = [
   'Afghanistan',
   'Albania',

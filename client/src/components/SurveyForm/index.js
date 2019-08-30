@@ -240,9 +240,7 @@ class SurveyForm extends Component {
           <FirstPage
             nextPage={this.nextPage}
             handleChange={this.handleChange}
-            country={country}
-            pledge={pledge}
-            name={name}
+            values={values}
           />
         )
       case 2:

@@ -1,5 +1,7 @@
 import React from 'react'
 import './index.scss'
+import { allCountries } from '../../../countries'
+
 // errors = [{value: '', msg:'some error message', param: 'address.inputname'}]
 // gets the array of errors from values.state and name comes from the name of input
 // we filter every error object with the name of the input, and show the error msg to the
@@ -108,12 +110,14 @@ const Address = ({
             className="form-control"
             name="country"
             onChange={e => handleChange('country')(e.target.value)}
-            defaultValue={values.country}
+            // defaultValue={values.country}
           >
-            <option value="">Select a Country</option>
-            <option>Nepal</option>
-            <option>Usa</option>
-            <option>Uk</option>
+            <option defaultValue={values.country}>{values.country}</option>
+            {allCountries.map((singleCountry, countryIndex) => (
+              <option key={countryIndex} value={singleCountry}>
+                {singleCountry}
+              </option>
+            ))}
           </select>
         </div>
         <div className="mb-3 required code">

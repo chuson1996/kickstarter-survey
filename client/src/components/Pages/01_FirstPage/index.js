@@ -4,7 +4,7 @@ import './index.scss'
 import firstPageImage from '../../../assets/images/firstPageImage.png'
 import { allCountries } from '../../../countries'
 
-const FirstPage = ({ nextPage, handleChange, country, pledge, name }) => (
+const FirstPage = ({ nextPage, handleChange, values, pledge }) => (
   <div className="firstPage_container">
     <div className="rens_preview">
       <h3 className="preview_header">
@@ -35,16 +35,16 @@ const FirstPage = ({ nextPage, handleChange, country, pledge, name }) => (
     <div className="hello_user">
       <h3>
         Hi,
-        {name}
+        {values.name}
       </h3>
       <p>
         {`Thanks for supporting our campaign! Now it's time to confirm your exact
         order details`}
       </p>
       <label>Your Pledge</label>
-      <p>{pledge}</p>
+      <p>{values.pledge}</p>
       <label>Your Pledge Level</label>
-      <p>{pledge}</p>
+      <p>{values.pledge}</p>
 
       <div className="mb-3">
         <label htmlFor="address">Country</label>
@@ -53,7 +53,7 @@ const FirstPage = ({ nextPage, handleChange, country, pledge, name }) => (
           name="country"
           onChange={e => handleChange('country')(e.target.value)}
         >
-          <option defaultValue={country}>{country}</option>
+          <option defaultValue={values.country}>{values.country}</option>
           {allCountries.map((singleCountry, index) => (
             <option key={index} value={singleCountry}>
               {singleCountry}
