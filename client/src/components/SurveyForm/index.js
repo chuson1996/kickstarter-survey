@@ -10,6 +10,8 @@ import YourAge from '../Pages/04_Questions/01_YourAge'
 import WhyRens from '../Pages/04_Questions/02_WhyRens'
 import Address from '../Pages/05_Address'
 import Preview from '../Pages/06_Preview'
+import Error404 from '../Error404'
+import SuccessfullFormSubmission from '../SuccessfullFormSubmission'
 
 class SurveyForm extends Component {
   state = {
@@ -36,11 +38,9 @@ class SurveyForm extends Component {
     },
     yourAge: '',
     whyRens: '',
-    shoeMeasured: false,
-    answerQuestion: false,
-    other: false,
     errors: [],
-    validAddress: false
+    shoeMeasured: false,
+    answerQuestion: false
   }
 
   componentDidMount() {
@@ -48,17 +48,29 @@ class SurveyForm extends Component {
       // eslint-disable-next-line react/destructuring-assignment
       .get(`http://localhost:5000/api/v1/backer/${this.props.match.params.id}`)
       .then(res => {
-        this.setState({
-          name: res.data.map(name => name.name)[0],
-          email: res.data.map(email => email.email)[0],
-          country: res.data.map(country => country.country)[0],
-          pledge: res.data.map(pledge => pledge.pledge)[0]
-        })
+        this.setState(
+          {
+            name: res.data.map(name => name.name)[0],
+            email: res.data.map(email => email.email)[0],
+            country: res.data.map(country => country.country)[0],
+            pledge: res.data.map(pledge => pledge.pledge)[0]
+          },
+          () => {
+            const { email } = this.state
+            if (email === undefined) {
+              this.setState({
+                page: 10
+              })
+            }
+          }
+        )
       })
       .catch(err => {
-        this.setState({
-          invalidBackerId: err.response.status
-        })
+        if (err.response.status === 404) {
+          this.setState({
+            page: 10
+          })
+        }
       })
   }
 
@@ -101,7 +113,6 @@ class SurveyForm extends Component {
   }
 
   handleEditAddress = () => {
-    // const { page } = this.state
     this.setState({
       page: 7
     })
@@ -191,7 +202,7 @@ class SurveyForm extends Component {
       })
       if (orders.status === 200) {
         this.setState({
-          displayForm: false
+          page: 9
         })
       }
     } catch (error) {
@@ -213,12 +224,11 @@ class SurveyForm extends Component {
       whyRens,
       shoeMeasured,
       answerQuestion,
-      other,
-      isTouched,
+
       errors,
       validAddress
     } = this.state
-    console.log('stae', this.state)
+    console.log('state', this.state)
     const values = {
       page,
       name,
@@ -234,6 +244,7 @@ class SurveyForm extends Component {
       errors,
       validAddress
     }
+
     switch (page) {
       case 1:
         return (
@@ -296,7 +307,6 @@ class SurveyForm extends Component {
             handleOtherChange={this.handleOtherChange}
             values={values}
             whyRens={whyRens}
-            other={other}
             answerQuestion={answerQuestion}
           />
         )
@@ -310,7 +320,6 @@ class SurveyForm extends Component {
             address={address}
             values={values}
             validate={this.validate}
-            isTouched={isTouched}
             handleFocus={this.handleFocus}
             handleSubmit={this.handleSubmit}
           />
@@ -326,6 +335,11 @@ class SurveyForm extends Component {
             handleEditShoeColorAndSize={this.handleEditShoeColorAndSize}
           />
         )
+      case 9:
+        return <SuccessfullFormSubmission />
+
+      case 10:
+        return <Error404 />
 
       default:
         break
