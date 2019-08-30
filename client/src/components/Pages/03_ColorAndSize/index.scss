@@ -57,8 +57,17 @@ label {
   }
 }
 
+.custom-table {
+  width: 60%;
+  margin: auto;
+}
+
 @include for-phone {
   .color {
+    width: 100%;
+  }
+
+  .custom-table {
     width: 100%;
   }
 }

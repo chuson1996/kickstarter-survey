@@ -10,29 +10,32 @@ const Preview = ({
   values
 }) => (
   <div className="preview" style={{ textAlign: 'center' }}>
-    {console.log('values', values.errors)}
-    <h1>Preview Here</h1>
-    <div className="preview-shoe">
-      <h4>Shoes</h4>
-      {previewData.shoes.map((shoePreview, previewIndex) => (
-        <ul key={previewIndex}>
-          {previewData.shoes.length > 1 && (
-            <h4>
-              Shoe
-              {previewIndex + 1}
-            </h4>
-          )}
-          <li>
-            <strong>Shoe Name</strong>
-            {shoePreview.color}
-          </li>
-          <li>
-            <strong>Shoe Size</strong>
-            {shoePreview.size}
-          </li>
-        </ul>
-      ))}
+    <h3 style={{ textAlign: 'center' }}>Preview</h3>
 
+    <div className="card" style={{ width: '60%', margin: 'auto' }}>
+      <div className="card-header">Shipping Address</div>
+
+      <table
+        className="table table-striped mb-3"
+        style={{ width: '60%', margin: 'auto' }}
+      >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Shoe Name</th>
+            <th scope="col">Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          {previewData.shoes.map((shoePreview, previewIndex) => (
+            <tr key={previewIndex}>
+              <th scope="row">{previewIndex + 1}</th>
+              <td>{shoePreview.color}</td>
+              <td>{shoePreview.size}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <button
         type="button"
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-primary btn-lg"
@@ -41,7 +44,29 @@ const Preview = ({
         Edit Shoe Color And Size
       </button>
     </div>
-    <div className="preview-address">
+
+    <div className="card" style={{ width: '60%', margin: 'auto' }}>
+      <div className="card-header">Shipping Address</div>
+      <div className="card-body">
+        <h5 className="card-title">{values.name}</h5>
+        <p className="card-text">{previewData.address.address1}</p>
+        <p className="card-text">{previewData.address.address2}</p>
+        <p className="card-text">{previewData.address.city}</p>
+        <p className="card-text">{previewData.address.state}</p>
+        <p className="card-text">{previewData.address.country}</p>
+        <p className="card-text">{previewData.address.zipCode}</p>
+        <p className="card-text">{previewData.address.phone}</p>
+        <button
+          type="button"
+          className="btn col-lg-3 col-md-4 col-sm-6 mb-3 btn-primary btn-lg"
+          onClick={handleEditAddress}
+        >
+          Edit Address
+        </button>
+      </div>
+    </div>
+
+    {/* <div className="preview-address">
       <h4>Addres</h4>
       <li>{previewData.address.address1}</li>
       <li>{previewData.address.city}</li>
@@ -55,7 +80,7 @@ const Preview = ({
       >
         Edit Address
       </button>
-    </div>
+    </div> */}
     <div className="row next">
       <button
         type="button"

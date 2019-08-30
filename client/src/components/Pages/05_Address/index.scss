@@ -1,3 +1,4 @@
+@import '../../../assets/styles/mixins';
 .address {
   width: 70%;
   margin: auto;
@@ -11,24 +12,42 @@
   }
   .city-state {
     display: flex;
+    @include for-phone {
+      flex-direction: column;
+    }
     justify-content: space-between;
 
     .city {
       width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
     }
     .state {
       width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
     }
   }
   .country-code {
     display: flex;
+    @include for-phone {
+      flex-direction: column;
+    }
     justify-content: space-between;
 
     .country {
       width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
     }
     .code {
       width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
     }
   }
   .none {

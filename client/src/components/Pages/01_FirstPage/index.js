@@ -3,11 +3,11 @@ import './index.scss'
 
 import firstPageImage from '../../../assets/images/firstPageImage.png'
 import { allCountries } from '../../../countries'
-// import SurveyFormHeader from '../../SurveyFormHeader'
+import SurveyFormHeader from '../../SurveyFormHeader'
 
 const FirstPage = ({ nextPage, handleChange, values }) => (
   <>
-    {/* <SurveyFormHeader /> */}
+    <SurveyFormHeader />
     <div className="firstPage_container">
       <div className="rens_preview">
         <h3 className="preview_header">

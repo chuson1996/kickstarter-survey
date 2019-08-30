@@ -23,6 +23,7 @@ const Address = ({
   values
 }) => (
   <div>
+    <h3>Confirm Your Shipping Address</h3>
     <div className="address">
       <div className="mb-3 required name">
         <label htmlFor="address">Full Name</label>
@@ -159,18 +160,18 @@ const Address = ({
     </div>
     <div className="row next">
       <button
-        type="submit"
-        onClick={nextPage}
-        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
-      >
-        Next Page
-      </button>
-      <button
         type="button"
         onClick={prevPage}
         className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
       >
         Previous
+      </button>
+      <button
+        type="submit"
+        onClick={nextPage}
+        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+      >
+        Next Page
       </button>
     </div>
   </div>

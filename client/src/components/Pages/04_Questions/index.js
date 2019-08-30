@@ -25,18 +25,18 @@ const Questions = ({ nextPage, prevPage, handleChange, answerQuestion }) => (
     <div className="row next">
       <button
         type="button"
+        onClick={prevPage}
+        className="btn col-lg-3 col-md-4 col-sm-6   btn-warning btn-lg"
+      >
+        Previous
+      </button>
+      <button
+        type="button"
         onClick={answerQuestion ? nextPage : undefined}
         className="btn col-lg-3 col-md-4 col-sm-6 btn-success btn-lg"
         disabled={!answerQuestion}
       >
         Next Page
-      </button>
-      <button
-        type="button"
-        onClick={prevPage}
-        className="btn col-lg-3 col-md-4 col-sm-6   btn-warning btn-lg"
-      >
-        Previous
       </button>
     </div>
   </div>

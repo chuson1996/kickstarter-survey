@@ -41,9 +41,7 @@ const WhyRens = ({ handleChange, nextPage, prevPage, whyRens }) => (
         type="radio"
         name="whyRens"
         id="other"
-        defaultChecked={options.every(
-          option => option.whyRensValue !== whyRens
-        )}
+        checked={options.every(option => option.whyRensValue !== whyRens)}
         onChange={e => handleChange('whyRens')(e.target.value)}
       />
       <label htmlFor="other">Other</label>
@@ -65,17 +63,17 @@ const WhyRens = ({ handleChange, nextPage, prevPage, whyRens }) => (
     <div className="row next">
       <button
         type="button"
-        onClick={nextPage}
-        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
-      >
-        Next Page
-      </button>
-      <button
-        type="button"
         onClick={prevPage}
         className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
       >
         Previous
+      </button>
+      <button
+        type="button"
+        onClick={nextPage}
+        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+      >
+        Next Page
       </button>
     </div>
   </div>

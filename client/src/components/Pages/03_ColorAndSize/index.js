@@ -62,27 +62,29 @@ const ColorAndSize = ({
         </div>
       )
     })}
-    <div className="preview" style={{ textAlign: 'center' }}>
-      <h4>Preview</h4>
-      {shoes.map((shoePreview, previewIndex) => (
-        <ul key={previewIndex}>
-          {shoes.length > 1 && (
-            <h4>
-              Shoe
-              {previewIndex + 1}
-            </h4>
-          )}
-          <li>
-            <strong>Shoe Name</strong>
-            {shoePreview.color}
-          </li>
-          <li>
-            <strong>Shoe Size</strong>
-            {shoePreview.size}
-          </li>
-        </ul>
-      ))}
-    </div>
+    <h3 style={{ textAlign: 'center' }}>Preview</h3>
+    <table
+      className="table table-striped mb-3"
+      style={{ width: '60%', margin: 'auto' }}
+    >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Shoe Name</th>
+          <th scope="col">Size</th>
+        </tr>
+      </thead>
+      <tbody>
+        {shoes.map((shoePreview, previewIndex) => (
+          <tr key={previewIndex}>
+            <th scope="row">{previewIndex + 1}</th>
+            <td>{shoePreview.color}</td>
+            <td>{shoePreview.size}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
     <div
       className={`col-lg-3 col-md-4 col-sm-6 mb-3 another ${
         parseInt(pledge, 10) <= shoes.length ? 'none' : ''
@@ -100,18 +102,18 @@ const ColorAndSize = ({
     <div className="row next">
       <button
         type="button"
+        onClick={prevPage}
+        className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
+      >
+        Previous
+      </button>
+      <button
+        type="button"
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
         onClick={nextPage}
         disabled={!invalidShoes(values.shoes, pledge)}
       >
         Next Page
-      </button>
-      <button
-        type="button"
-        onClick={prevPage}
-        className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
-      >
-        Previous
       </button>
       {values.validAddress && (
         <button

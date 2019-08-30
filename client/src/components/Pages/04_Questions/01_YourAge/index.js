@@ -52,18 +52,18 @@ const YourAge = ({ nextPage, prevPage, handleChange, values, yourAge }) => (
     <div className="row next">
       <button
         type="button"
+        onClick={prevPage}
+        className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
+      >
+        Previous
+      </button>
+      <button
+        type="button"
         onClick={nextPage}
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
         disabled={isAnswered(values.yourAge)}
       >
         Next Page
-      </button>
-      <button
-        type="button"
-        onClick={prevPage}
-        className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
-      >
-        Previous
       </button>
     </div>
   </div>
