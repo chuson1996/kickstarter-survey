@@ -6,9 +6,11 @@ const Preview = ({
   prevPage,
   previewData,
   handleEditShoeColorAndSize,
-  handleEditAddress
+  handleEditAddress,
+  values
 }) => (
   <div className="preview" style={{ textAlign: 'center' }}>
+    {console.log('values', values.errors)}
     <h1>Preview Here</h1>
     <div className="preview-shoe">
       <h4>Shoes</h4>
@@ -62,13 +64,10 @@ const Preview = ({
       >
         Submit
       </button>
-      <button
-        type="button"
-        onClick={prevPage}
-        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-warning btn-lg"
-      >
-        Previous
-      </button>
+
+      <div className={values.errors.length <= 0 ? 'none' : 'invalid'}>
+        {values.errors.length <= 0 ? null : values.errors}
+      </div>
     </div>
   </div>
 )

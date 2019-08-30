@@ -44,7 +44,7 @@ router.post(
       .not()
       .isEmpty()
       .withMessage('Phone cannot be empty')
-      .matches(/^\+[0-9]{10,14}$/)
+      .matches(/^\+[0-9]{0,14}$/)
       .withMessage('Invalid Phone')
   ],
   // eslint-disable-next-line consistent-return

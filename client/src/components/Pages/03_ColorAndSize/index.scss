@@ -12,15 +12,14 @@ label {
   background: lightblue;
 }
 
-select.gender {
-  width: 30%;
-}
-
-.size {
+.color {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5rem auto 0 auto;
+  width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+
   input {
     // width: 100%;
     padding: 12px 20px;
@@ -30,28 +29,6 @@ select.gender {
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
-  }
-}
-
-.color-size {
-  display: flex;
-  width: 80%;
-  margin: auto;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  input,
-  select {
-    input {
-      // width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
   }
 
   .collections {
@@ -81,13 +58,13 @@ select.gender {
 }
 
 @include for-phone {
-  .color-size {
+  .color {
     width: 100%;
   }
 }
 
 @include for-tablet {
-  .color-size {
+  .color {
     width: 90%;
   }
 }

@@ -57,8 +57,6 @@ router.post(
       .not()
       .isEmpty()
       .withMessage('Phone cannot be empty')
-      .isMobilePhone('any')
-      .withMessage('mobile phone is invalid')
   ],
   // eslint-disable-next-line consistent-return
   async (req, res, next) => {
@@ -135,9 +133,7 @@ router.post(
       // sgMail.send(msg)
       res.status(200).json({ success: true })
     } catch (error) {
-      console.error({ error })
-      next(error)
-      // res.status(409).json({ error: 'You have already submitted the form' })
+      res.status(409).json({ error: 'You have already submitted the form' })
     }
   }
 )

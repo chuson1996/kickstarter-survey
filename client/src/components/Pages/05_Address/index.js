@@ -145,7 +145,13 @@ const Address = ({
           onChange={e => handleAddressChange('phone')(e.target.value)}
           defaultValue={values.address.phone}
         />
-        <div className={values.errors.length <= 0 ? 'none' : 'invalid'}>
+        <div
+          className={
+            values.errors.length <= 0 || values.errors === undefined
+              ? 'none'
+              : 'invalid'
+          }
+        >
           {errorMessages(values.errors, 'phone')}
         </div>
         <p className="phone-helper">Phone Format: +358458982023</p>

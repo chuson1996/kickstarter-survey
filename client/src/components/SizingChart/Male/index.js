@@ -1,5 +1,6 @@
 import React from 'react'
 import Female from '../Female'
+import './index.scss'
 
 const MenChart = ({
   handleShoeChange,
@@ -9,7 +10,7 @@ const MenChart = ({
 }) => {
   return (
     <div className="size">
-      <h4>Gender</h4>
+      <p style={{ textAlign: 'left' }}>Gender</p>
       <select
         onChange={handleShoeChange}
         name="gender"
@@ -24,7 +25,7 @@ const MenChart = ({
       <div className="us-euro-uk">
         {(shoe.gender === 'male' || shoe.gender === 'female') && (
           <>
-            <h4>Which Size US, Euro or Uk</h4>
+            <p style={{ textAlign: 'left' }}>Which Size US, Euro or Uk</p>
             <select
               onChange={handleShoeChange}
               name="whichSize"
@@ -41,7 +42,7 @@ const MenChart = ({
 
         {shoe.gender === 'male' && shoe.whichSize === 'us' && (
           <>
-            <h4>Select Your Size</h4>
+            <p style={{ textAlign: 'left' }}>Select Your Size</p>
             <select
               onChange={handleShoeChange}
               name="size"
@@ -59,7 +60,7 @@ const MenChart = ({
         )}
         {shoe.gender === 'male' && shoe.whichSize === 'euro' && (
           <>
-            <h4>Select Your Size</h4>
+            <p style={{ textAlign: 'left' }}>Select Your Size</p>
             <select
               onChange={handleShoeChange}
               name="size"
@@ -77,7 +78,7 @@ const MenChart = ({
         )}
         {shoe.gender === 'male' && shoe.whichSize === 'uk' && (
           <>
-            <h4>Select Your Size</h4>
+            <p style={{ textAlign: 'left' }}>Select Your Size</p>
             <select
               onChange={handleShoeChange}
               name="size"

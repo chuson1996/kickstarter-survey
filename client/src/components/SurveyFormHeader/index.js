@@ -1,9 +1,12 @@
 import React from 'react'
-import rensLogo from '../../assets/rensLogo.png'
+import rensLogo from '../../assets/images/rensLogo.png'
 
 const SurveyFormHeader = () => {
   return (
-    <div className="py-5 text-center">
+    <div
+      className="py-5 text-center main-header"
+      style={{ width: '70%', margin: 'auto' }}
+    >
       <img
         className="rens-logo"
         src={rensLogo}

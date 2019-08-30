@@ -21,14 +21,14 @@ const ColorAndSize = ({
 }) => (
   <div>
     {console.log({ values })}
+    <h4 style={{ textAlign: 'center' }}>Please Choose Your Color And Size</h4>
+    <p style={{ textAlign: 'center' }}>
+      Note: Click on shoe image to pick your color
+    </p>
     {shoes.map((shoe, index) => {
       return (
         <div key={index} className="delivery-items">
-          <h3 style={{ textAlign: 'center' }}>
-            Pick Your Color and Size
-            {` #${index + 1}`}
-          </h3>
-          <div className="color-size">
+          <div className="color">
             {shoeColors.map((shoeColor, shoeColorIndex) => {
               return (
                 <div key={shoeColorIndex} className="collections">
@@ -49,6 +49,7 @@ const ColorAndSize = ({
               )
             })}
           </div>
+          <hr />
           <MenChart
             sizingChartMale={sizingChartMale}
             sizingChartFemale={sizingChartFemale}

@@ -1,11 +1,12 @@
 import React from 'react'
+import './index.scss'
 
 const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
   return (
-    <div className="size">
+    <div className="us-euro-uk">
       {shoe.gender === 'female' && shoe.whichSize === 'us' && (
         <>
-          <h4>Select Your Size</h4>
+          <p>Select Your Size</p>
           <select
             onChange={handleShoeChange}
             name="size"
@@ -23,7 +24,7 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
       )}
       {shoe.gender === 'female' && shoe.whichSize === 'euro' && (
         <>
-          <h4>Select Your Size</h4>
+          <p>Select Your Size</p>
           <select
             onChange={handleShoeChange}
             name="size"
@@ -41,7 +42,7 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
       )}
       {shoe.gender === 'female' && shoe.whichSize === 'uk' && (
         <>
-          <h4>Select Your Size</h4>
+          <p>Select Your Size</p>
           <select
             onChange={handleShoeChange}
             name="size"

@@ -95,6 +95,7 @@ class SurveyForm extends Component {
             name
           }
         )
+
         if (onAddressSubmit.status === 200) {
           this.setState({
             page: page + 1,
@@ -102,8 +103,8 @@ class SurveyForm extends Component {
             validAddress: true
           })
         }
-      } catch (error) {
-        this.setState({ errors: error.response.data.errors })
+      } catch (errors) {
+        this.setState({ errors: errors.response.data.errors })
       }
     } else {
       this.setState({
@@ -202,11 +203,14 @@ class SurveyForm extends Component {
       })
       if (orders.status === 200) {
         this.setState({
-          page: 9
+          page: 9,
+          errors: []
         })
       }
     } catch (error) {
-      this.setState({ errors: error.response.data.errors })
+      this.setState({
+        errors: [error.response.data.error]
+      })
     }
   }
 
@@ -333,6 +337,7 @@ class SurveyForm extends Component {
             previewData={this.state}
             handleEditAddress={this.handleEditAddress}
             handleEditShoeColorAndSize={this.handleEditShoeColorAndSize}
+            values={values}
           />
         )
       case 9:

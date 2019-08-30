@@ -8,6 +8,7 @@
   padding: 60px;
   border: 1px solid;
   margin: auto;
+  box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
   @include for-phone {
     width: 100%;
     padding: 20px;

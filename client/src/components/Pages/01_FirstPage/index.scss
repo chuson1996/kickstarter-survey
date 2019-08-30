@@ -2,11 +2,16 @@
 
 .firstPage_container {
   display: flex;
-  margin-top: 5rem;
+  background: #fff;
+  width: 90%;
+  margin: auto;
+  padding: 3rem;
+  box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
   .rens_preview {
     border: 1px solid #61615f;
     width: 45%;
     margin: auto;
+    padding: 1rem;
 
     .preview_header {
       text-align: center;
@@ -32,13 +37,22 @@
       }
     }
   }
+  .next-button {
+    width: 15rem;
+  }
+  label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #999;
+    margin: 0;
+  }
 
   .hello_user {
     width: 45%;
     margin: auto;
 
     .country {
-      width: 55%;
+      width: 15rem;
     }
   }
 }
