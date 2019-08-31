@@ -23,7 +23,14 @@ const ColorAndSize = ({
     {console.log({ values })}
     <h4 style={{ textAlign: 'center' }}>Please Choose Your Color And Size</h4>
     <p style={{ textAlign: 'center' }}>
-      Note: Click on shoe image to pick your color
+      <>
+        Note: Click on shoe image to pick your color
+        <br />
+        <label>
+          If you have more than one shoe. Pick one color then choose the size
+          and add another color
+        </label>
+      </>
     </p>
     {shoes.map((shoe, index) => {
       return (

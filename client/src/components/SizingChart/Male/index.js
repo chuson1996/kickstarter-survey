@@ -10,7 +10,7 @@ const MenChart = ({
 }) => {
   return (
     <div className="size">
-      <p style={{ textAlign: 'left' }}>Gender</p>
+      <label style={{ textAlign: 'left' }}>Gender</label>
       <select
         onChange={handleShoeChange}
         name="gender"
@@ -25,14 +25,16 @@ const MenChart = ({
       <div className="us-euro-uk">
         {(shoe.gender === 'male' || shoe.gender === 'female') && (
           <>
-            <p style={{ textAlign: 'left' }}>Which Size US, Euro or Uk</p>
+            <label style={{ textAlign: 'left' }}>
+              Size in US, EURO or UK ?
+            </label>
             <select
               onChange={handleShoeChange}
               name="whichSize"
               className="form-control mb-5 whichSize"
               defaultValue={shoe.whichSize}
             >
-              <option value="">Which Size Do You Prefer</option>
+              <option value="">Size in US, EURO or UK ?</option>
               <option value="us">US</option>
               <option value="euro">EURO</option>
               <option value="uk">UK</option>
@@ -42,14 +44,14 @@ const MenChart = ({
 
         {shoe.gender === 'male' && shoe.whichSize === 'us' && (
           <>
-            <p style={{ textAlign: 'left' }}>Select Your Size</p>
+            <label style={{ textAlign: 'left' }}>Select Your Size</label>
             <select
               onChange={handleShoeChange}
               name="size"
               className="form-control mb-5 whichSize"
               defaultValue={shoe.size}
             >
-              <option value="">Your Size Please</option>
+              <option value="">Select Your Size</option>
               {sizingChartMale.us.map((us, usIndex) => (
                 <option value={`${us} Us Men`} key={usIndex}>
                   {us}
@@ -60,14 +62,14 @@ const MenChart = ({
         )}
         {shoe.gender === 'male' && shoe.whichSize === 'euro' && (
           <>
-            <p style={{ textAlign: 'left' }}>Select Your Size</p>
+            <label style={{ textAlign: 'left' }}>Select Your Size</label>
             <select
               onChange={handleShoeChange}
               name="size"
               className="form-control mb-5 whichSize"
               defaultValue={shoe.size}
             >
-              <option value="">Your Size Please</option>
+              <option value="">Select Your Size</option>
               {sizingChartMale.euro.map((euro, euroIndex) => (
                 <option value={`${euro} Euro Men`} key={euroIndex}>
                   {euro}
@@ -78,14 +80,14 @@ const MenChart = ({
         )}
         {shoe.gender === 'male' && shoe.whichSize === 'uk' && (
           <>
-            <p style={{ textAlign: 'left' }}>Select Your Size</p>
+            <label style={{ textAlign: 'left' }}>Select Your Size</label>
             <select
               onChange={handleShoeChange}
               name="size"
               className="form-control mb-5 whichSize"
               defaultValue={shoe.size}
             >
-              <option>Your Size Please</option>
+              <option>Select Your Size</option>
               {sizingChartMale.uk.map((uk, ukIndex) => (
                 <option value={`${uk} Uk Men`} key={ukIndex}>
                   {uk}

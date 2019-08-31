@@ -6,14 +6,14 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
     <div className="us-euro-uk">
       {shoe.gender === 'female' && shoe.whichSize === 'us' && (
         <>
-          <p>Select Your Size</p>
+          <label>Select Your Size</label>
           <select
             onChange={handleShoeChange}
             name="size"
             className="form-control mb-5 whichSize"
             defaultValue={shoe.size}
           >
-            <option>Your Size Please</option>
+            <option>Select Your Size</option>
             {sizingChartFemale.us.map((us, usIndex) => (
               <option value={`${us} Us Women`} key={usIndex}>
                 {us}
@@ -24,14 +24,14 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
       )}
       {shoe.gender === 'female' && shoe.whichSize === 'euro' && (
         <>
-          <p>Select Your Size</p>
+          <label>Select Your Size</label>
           <select
             onChange={handleShoeChange}
             name="size"
             className="form-control mb-5 whichSize"
             defaultValue={shoe.size}
           >
-            <option>Your Size Please</option>
+            <option>Select Your Size</option>
             {sizingChartFemale.euro.map((euro, euroIndex) => (
               <option value={`${euro} Euro Women`} key={euroIndex}>
                 {euro}
@@ -42,14 +42,14 @@ const Female = ({ handleShoeChange, shoe, sizingChartFemale }) => {
       )}
       {shoe.gender === 'female' && shoe.whichSize === 'uk' && (
         <>
-          <p>Select Your Size</p>
+          <label>Select Your Size</label>
           <select
             onChange={handleShoeChange}
             name="size"
             className="form-control mb-5 whichSize"
             defaultValue={shoe.size}
           >
-            <option>Your Size Please</option>
+            <option>Select Your Size</option>
             {sizingChartFemale.uk.map((uk, ukIndex) => (
               <option value={`${uk} Uk Women`} key={ukIndex}>
                 {uk}

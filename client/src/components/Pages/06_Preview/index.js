@@ -3,7 +3,6 @@ import './index.scss'
 
 const Preview = ({
   handleSubmit,
-  prevPage,
   previewData,
   handleEditShoeColorAndSize,
   handleEditAddress,
@@ -41,7 +40,7 @@ const Preview = ({
         className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-primary btn-lg"
         onClick={handleEditShoeColorAndSize}
       >
-        Edit Shoe Color And Size
+        Edit Shoe
       </button>
     </div>
 

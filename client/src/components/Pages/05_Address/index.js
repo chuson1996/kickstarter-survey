@@ -23,7 +23,7 @@ const Address = ({
   values
 }) => (
   <div>
-    <h3>Confirm Your Shipping Address</h3>
+    <h3 style={{ textAlign: 'center' }}>Confirm Your Shipping Address</h3>
     <div className="address">
       <div className="mb-3 required name">
         <label htmlFor="address">Full Name</label>

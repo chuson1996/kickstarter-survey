@@ -3,6 +3,13 @@
 .size {
   width: 30%;
   margin: auto;
+
+  label {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(90, 90, 90);
+    margin: 0;
+  }
 }
 
 @include for-phone {
