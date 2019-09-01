@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/api/v1/backer').then(res => {
+    axios.get('/api/v1/backer').then(res => {
       this.setState({
         backers: res.data,
         loading: false

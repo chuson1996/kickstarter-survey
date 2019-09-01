@@ -1,19 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "034b1df98888515f3d0506bbdaf97a8c",
+    "revision": "1372628cb1453d46fdfedd27e7a310a1",
     "url": "/index.html"
   },
   {
-    "revision": "5505af801830fb7c06cb",
-    "url": "/static/css/main.3b6d8371.chunk.css"
+    "revision": "7005091550692c9ea5dd",
+    "url": "/static/css/2.22a7d4ef.chunk.css"
   },
   {
-    "revision": "31a26a34125035fe4815",
-    "url": "/static/js/2.2f126f05.chunk.js"
+    "revision": "8f4bd071e838380fbd84",
+    "url": "/static/css/main.de5f6c24.chunk.css"
   },
   {
-    "revision": "5505af801830fb7c06cb",
-    "url": "/static/js/main.43896585.chunk.js"
+    "revision": "7005091550692c9ea5dd",
+    "url": "/static/js/2.de3a213f.chunk.js"
+  },
+  {
+    "revision": "8f4bd071e838380fbd84",
+    "url": "/static/js/main.8c341682.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -60,7 +64,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/chart.4e73e9d2.png"
   },
   {
+    "revision": "60e30d2f23c6236339f0a0376c141ed6",
+    "url": "/static/media/firstPageImage.60e30d2f.png"
+  },
+  {
     "revision": "ea81012e79fcf8b166b7f6ca71a7bfb3",
-    "url": "/static/media/measuring_shoes.ea81012e.gif"
+    "url": "/static/media/measuringGuide.ea81012e.gif"
+  },
+  {
+    "revision": "6335f9f27df4c1bc0c46ca43c45eb55d",
+    "url": "/static/media/rens.6335f9f2.gif"
   }
 ]);
