@@ -4,7 +4,7 @@ import './index.scss'
 import measuringGuide from '../../../assets/images/measuringGuide.gif'
 import chart from '../../../assets/images/chart.png'
 
-const ShoeMeasurment = ({ nextPage, prevPage, handleChange, shoeMeasured }) => (
+const ShoeMeasurment = ({ nextPage, handleChange, shoeMeasured }) => (
   <>
     <div style={{ textAlign: 'center' }} className="header">
       <h1>Measuring Shoe Size</h1>
