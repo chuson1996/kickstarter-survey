@@ -1,0 +1,55 @@
+@import '../../../../assets/styles/mixins';
+
+.why-rens-container {
+  height: 100vh;
+  display: flex;
+  .why-rens {
+    width: 40rem;
+    margin: auto;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+
+    .row {
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+    @include for-phone {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .question {
+      margin-left: 1rem;
+
+      label {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+.whyrens-buttons {
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+
+  @include for-phone {
+    flex-direction: column;
+  }
+  .next {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+  .back {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+}

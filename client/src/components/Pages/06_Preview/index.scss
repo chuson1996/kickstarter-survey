@@ -1,0 +1,55 @@
+@import '../../../assets/styles/mixins';
+
+.none {
+  display: none;
+}
+
+.invalid {
+  // display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.card.order-item {
+  width: 60%;
+  margin: auto;
+}
+
+.table.order-table {
+  width: 100%;
+  margin: auto;
+}
+
+.edit-shoe {
+  width: 50%;
+  margin: auto;
+}
+
+.card.shipping-address {
+  width: 60%;
+  margin: 2rem auto;
+}
+.edit-address {
+  width: 50%;
+  margin: auto;
+}
+
+@include for-phone {
+  .card.order-item {
+    width: 100%;
+  }
+  .edit-shoe {
+    width: 90%;
+  }
+
+  .edit-address {
+    width: 100%;
+  }
+
+  .card.shipping-address {
+    width: 100%;
+    margin: 2rem auto;
+  }
+}

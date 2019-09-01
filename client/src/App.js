@@ -4,7 +4,8 @@ import axios from 'axios'
 import './App.scss'
 import SurveyForm from './components/SurveyForm'
 import Error404 from './components/Error404'
-import rensLoading from './assets/rens.gif'
+import rensLoading from './assets/images/rens.gif'
+// import SurveyFormHeader from './components/SurveyFormHeader'
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class App extends React.Component {
         loading: false
       })
     })
-
   }
 
   render() {
@@ -37,6 +37,7 @@ class App extends React.Component {
     console.log({ backers })
     return (
       <Router>
+        {/* <SurveyFormHeader /> */}
         <div className="App">
           <Switch>
             <Route

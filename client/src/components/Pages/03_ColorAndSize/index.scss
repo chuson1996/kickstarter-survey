@@ -1,0 +1,104 @@
+@import '../../../assets/styles/mixins';
+
+.none {
+  display: none;
+}
+label {
+  margin: 1rem 0;
+  font-weight: 900;
+}
+
+.active {
+  background: lightblue;
+}
+
+.color {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+
+  input {
+    // width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .collections {
+    display: flex;
+    flex-direction: column-reverse;
+
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .collections:hover {
+    background: lightblue;
+  }
+}
+
+.another {
+  margin: auto;
+}
+
+.next {
+  justify-content: center;
+  margin-right: 5px;
+
+  .none {
+    display: none;
+  }
+}
+
+table.preview-table {
+  width: 60%;
+  margin: auto;
+}
+
+@include for-phone {
+  .color {
+    width: 100%;
+  }
+
+  table.preview-table {
+    width: 100%;
+  }
+}
+
+@include for-tablet {
+  .color {
+    width: 90%;
+  }
+}
+
+.color-size-buttons {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+
+  @include for-phone {
+    flex-direction: column;
+  }
+  .next {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+  .back {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+}

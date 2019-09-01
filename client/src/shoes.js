@@ -1,48 +1,48 @@
-import ClassicBlack from './assets/ClassicBlack.png'
-import ClassicWhite from './assets/ClassicWhite.png'
-import StealthBlack from './assets/StealthBlack.png'
-import Blue from './assets/Blue.png'
-import Pink from './assets/Pink.png'
-import RebelBlack from './assets/RebelBlack.png'
-import RebelWhite from './assets/RebelWhite.png'
-import Red from './assets/Red.png'
-import Wanderer from './assets/Wanderer.png'
+import ClassicBlack from './assets/images/ClassicBlack.png'
+import ClassicWhite from './assets/images/ClassicWhite.png'
+import StealthBlack from './assets/images/StealthBlack.png'
+import Blue from './assets/images/Blue.png'
+import Pink from './assets/images/Pink.png'
+import RebelBlack from './assets/images/RebelBlack.png'
+import RebelWhite from './assets/images/RebelWhite.png'
+import Red from './assets/images/Red.png'
+import Wanderer from './assets/images/Wanderer.png'
 
 export const shoeColors = [
   {
-    name: 'Classic Black',
+    color: 'Classic Black',
     src: ClassicBlack
   },
   {
-    name: 'Classic White',
+    color: 'Classic White',
     src: ClassicWhite
   },
   {
-    name: 'Stealth Black',
+    color: 'Stealth Black',
     src: StealthBlack
   },
   {
-    name: 'Rebel Black',
+    color: 'Rebel Black',
     src: RebelBlack
   },
   {
-    name: 'Rebel White',
+    color: 'Rebel White',
     src: RebelWhite
   },
   {
-    name: 'Blue',
+    color: 'Blue',
     src: Blue
   },
   {
-    name: 'Pink',
+    color: 'Pink',
     src: Pink
   },
   {
-    name: 'Red',
+    color: 'Red',
     src: Red
   },
   {
-    name: 'Wanderer',
+    color: 'Wanderer',
     src: Wanderer
   }
 ]

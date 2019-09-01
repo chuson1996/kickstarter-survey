@@ -1,0 +1,95 @@
+@import '../../../assets/styles/mixins';
+.address {
+  width: 70%;
+  margin: auto;
+  .required label {
+    font-weight: bold;
+  }
+  .required label:after {
+    color: #e32;
+    content: ' *';
+    display: inline;
+  }
+  .city-state {
+    display: flex;
+    @include for-phone {
+      flex-direction: column;
+    }
+    justify-content: space-between;
+
+    .city {
+      width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
+    }
+    .state {
+      width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
+    }
+  }
+  .country-code {
+    display: flex;
+    @include for-phone {
+      flex-direction: column;
+    }
+    justify-content: space-between;
+
+    .country {
+      width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
+    }
+    .code {
+      width: 48%;
+      @include for-phone {
+        width: 100%;
+      }
+    }
+  }
+
+  .none {
+    display: none;
+  }
+  .invalid {
+    // display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+  .phone-helper {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: blue;
+  }
+}
+
+.address-buttons {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+
+  @include for-phone {
+    flex-direction: column;
+  }
+  .next {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+  .back {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+}
