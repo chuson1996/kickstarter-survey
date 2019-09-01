@@ -60,6 +60,10 @@
 @include for-phone {
   .firstPage_container {
     flex-direction: column;
+    width: 100%;
+    .lead {
+      font-size: 1rem;
+    }
     .rens_preview {
       width: 100%;
       .preview_header {

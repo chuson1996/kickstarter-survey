@@ -35,21 +35,21 @@ const ShoeMeasurment = ({ nextPage, prevPage, handleChange, shoeMeasured }) => (
         </label>
       </div>
 
-      <div className="col-lg-3 col-md-4 col-sm-6 mb-3">
+      <div className="measurment-buttons">
+        {/* <button
+          type="button"
+          onClick={prevPage}
+          className="btn btn-warning btn-lg  back"
+        >
+          Go Back
+        </button> */}
         <button
           type="button"
           onClick={shoeMeasured ? nextPage : undefined}
-          className="btn  btn-success btn-lg btn-block"
+          className="btn  btn-success btn-lg  next"
           disabled={!shoeMeasured}
         >
           Let Me Fill The Form
-        </button>
-        <button
-          type="button"
-          onClick={prevPage}
-          className="btn btn-warning btn-lg btn-block"
-        >
-          Go Back
         </button>
       </div>
     </div>

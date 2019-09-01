@@ -11,13 +11,10 @@ const Preview = ({
   <div className="preview" style={{ textAlign: 'center' }}>
     <h3 style={{ textAlign: 'center' }}>Preview</h3>
 
-    <div className="card" style={{ width: '60%', margin: 'auto' }}>
-      <div className="card-header">Shipping Address</div>
+    <div className="card order-item">
+      <div className="card-header">Ordered Items</div>
 
-      <table
-        className="table table-striped mb-3"
-        style={{ width: '60%', margin: 'auto' }}
-      >
+      <table className="table table-striped mb-3 order-table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -37,14 +34,14 @@ const Preview = ({
       </table>
       <button
         type="button"
-        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-primary btn-lg"
+        className="btn btn-primary btn-lg edit-shoe"
         onClick={handleEditShoeColorAndSize}
       >
         Edit Shoe
       </button>
     </div>
 
-    <div className="card" style={{ width: '60%', margin: 'auto' }}>
+    <div className="card shipping-address">
       <div className="card-header">Shipping Address</div>
       <div className="card-body">
         <h5 className="card-title">{values.name}</h5>
@@ -52,12 +49,12 @@ const Preview = ({
         <p className="card-text">{previewData.address.address2}</p>
         <p className="card-text">{previewData.address.city}</p>
         <p className="card-text">{previewData.address.state}</p>
-        <p className="card-text">{previewData.address.country}</p>
+        <p className="card-text">{previewData.country}</p>
         <p className="card-text">{previewData.address.zipCode}</p>
         <p className="card-text">{previewData.address.phone}</p>
         <button
           type="button"
-          className="btn col-lg-3 col-md-4 col-sm-6 mb-3 btn-primary btn-lg"
+          className="btn  btn-primary btn-lg edit-address"
           onClick={handleEditAddress}
         >
           Edit Address

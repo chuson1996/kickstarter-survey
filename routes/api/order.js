@@ -59,7 +59,7 @@ router.post(
       .withMessage('Phone cannot be empty')
   ],
   // eslint-disable-next-line consistent-return
-  async (req, res, next) => {
+  async (req, res) => {
     try {
       const errors = validationResult(req)
       if (!errors.isEmpty()) {

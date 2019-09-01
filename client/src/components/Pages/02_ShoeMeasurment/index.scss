@@ -1,3 +1,5 @@
+@import '../../../assets/styles/mixins';
+
 .shoe_measurment {
   display: flex;
   justify-content: center;
@@ -17,4 +19,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.measurment-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  @include for-phone {
+    flex-direction: column;
+  }
+  .next {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
 }

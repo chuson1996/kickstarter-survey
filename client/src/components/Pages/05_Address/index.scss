@@ -50,6 +50,7 @@
       }
     }
   }
+
   .none {
     display: none;
   }
@@ -65,5 +66,30 @@
     margin-top: 0.25rem;
     font-size: 80%;
     color: blue;
+  }
+}
+
+.address-buttons {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+
+  @include for-phone {
+    flex-direction: column;
+  }
+  .next {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+  .back {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
   }
 }

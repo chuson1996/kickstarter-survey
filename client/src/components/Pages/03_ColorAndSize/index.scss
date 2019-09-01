@@ -57,7 +57,7 @@ label {
   }
 }
 
-.custom-table {
+table.preview-table {
   width: 60%;
   margin: auto;
 }
@@ -67,7 +67,7 @@ label {
     width: 100%;
   }
 
-  .custom-table {
+  table.preview-table {
     width: 100%;
   }
 }
@@ -75,5 +75,30 @@ label {
 @include for-tablet {
   .color {
     width: 90%;
+  }
+}
+
+.color-size-buttons {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+
+  @include for-phone {
+    flex-direction: column;
+  }
+  .next {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
+  .back {
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
   }
 }

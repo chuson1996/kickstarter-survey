@@ -23,18 +23,18 @@ const Questions = ({ nextPage, prevPage, handleChange, answerQuestion }) => (
           Sure, Happy To Help
         </label>
       </div>
-      <div className="row next">
+      <div className="questions-buttons">
         <button
           type="button"
           onClick={prevPage}
-          className="btn col-lg-3 col-md-4 col-sm-6   btn-warning btn-lg"
+          className="btn btn-warning btn-lg back"
         >
           Previous
         </button>
         <button
           type="button"
           onClick={answerQuestion ? nextPage : undefined}
-          className="btn col-lg-3 col-md-4 col-sm-6 btn-success btn-lg"
+          className="btn btn-success btn-lg next"
           disabled={!answerQuestion}
         >
           Next Page

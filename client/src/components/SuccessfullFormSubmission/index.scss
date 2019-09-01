@@ -1,0 +1,21 @@
+@import '../../assets/styles/mixins';
+
+.msg-container {
+  height: 100vh;
+  display: flex;
+  .success-msg {
+    width: 80%;
+    margin: auto;
+    padding: 2rem;
+    align-self: center;
+    box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+  }
+}
+
+@include for-phone {
+  .msg-container {
+    .success-msg {
+      width: 100%;
+    }
+  }
+}

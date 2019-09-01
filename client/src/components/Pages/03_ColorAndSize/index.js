@@ -70,10 +70,7 @@ const ColorAndSize = ({
       )
     })}
     <h3 style={{ textAlign: 'center' }}>Preview</h3>
-    <table
-      className="table table-striped mb-3"
-      style={{ width: '60%', margin: 'auto' }}
-    >
+    <table className="table table-striped mb-3 preview-table">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -106,17 +103,17 @@ const ColorAndSize = ({
       </button>
     </div>
 
-    <div className="row next">
+    <div className="color-size-buttons">
       <button
         type="button"
         onClick={prevPage}
-        className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
+        className="btn   btn-warning btn-lg back"
       >
-        Previous
+        Go Back
       </button>
       <button
         type="button"
-        className="btn col-lg-3 col-md-4 col-sm-6 mr-1 btn-success btn-lg"
+        className="btn   btn-success btn-lg next"
         onClick={nextPage}
         disabled={!invalidShoes(values.shoes, pledge)}
       >
@@ -126,12 +123,39 @@ const ColorAndSize = ({
         <button
           type="button"
           onClick={goToFinalpage}
-          className="btn col-lg-3 col-md-4 col-sm-6 ml-1 btn-warning btn-lg"
+          className="btn   btn-primary btn-lg preview-page"
         >
           Go To Preview Page
         </button>
       )}
     </div>
+
+    {/* <div className="row next">
+      <button
+        type="button"
+        onClick={prevPage}
+        className="btn col-lg-3 col-md-4 col-sm-6  btn-warning btn-lg"
+      >
+        Previous
+      </button>
+      <button
+        type="button"
+        className="btn col-lg-3 col-md-4 col-sm-6  btn-success btn-lg"
+        onClick={nextPage}
+        disabled={!invalidShoes(values.shoes, pledge)}
+      >
+        Next Page
+      </button>
+      {values.validAddress && (
+        <button
+          type="button"
+          onClick={goToFinalpage}
+          className="btn col-lg-3 col-md-4 col-sm-6  btn-warning btn-lg"
+        >
+          Go To Preview Page
+        </button>
+      )}
+    </div> */}
   </div>
 )
 
