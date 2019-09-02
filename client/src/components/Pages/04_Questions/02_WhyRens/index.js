@@ -19,7 +19,6 @@ const options = [
 const WhyRens = ({ handleChange, nextPage, prevPage, whyRens }) => (
   <div className="why-rens-container">
     <div className="why-rens">
-      {console.log({ whyRens })}
       <p className="why-rens-para">
         What feature of Rens are you most interested in?
       </p>

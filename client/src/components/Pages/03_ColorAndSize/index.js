@@ -19,7 +19,6 @@ const ColorAndSize = ({
   goToFinalpage
 }) => (
   <div>
-    {console.log({ values })}
     <h4 style={{ textAlign: 'center' }}>Please Choose Your Color And Size</h4>
     <p style={{ textAlign: 'center' }}>
       <>
