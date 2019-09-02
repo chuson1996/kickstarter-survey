@@ -22,8 +22,14 @@ const Address = ({
   handleAddressChange,
   values
 }) => (
-  <div>
+  <div className="address-container">
     <h3 style={{ textAlign: 'center' }}>Confirm Your Shipping Address</h3>
+    <div style={{ textAlign: 'center' }} className="mb-3 required">
+      <label>
+        <span style={{ color: 'red' }}>*</span>
+        are required fields
+      </label>
+    </div>
     <div className="address">
       <div className="mb-3 required name">
         <label htmlFor="address">Full Name</label>
@@ -59,8 +65,8 @@ const Address = ({
           {errorMessages(values.errors, 'address1')}
         </div>
       </div>
-      <div className="mb-3 required address2">
-        <label htmlFor="address">Address 2</label>
+      <div className="mb-3 address2">
+        <label htmlFor="address">Address 2(Optional)</label>
         <input
           type="text"
           className="form-control"
@@ -88,8 +94,8 @@ const Address = ({
             {errorMessages(values.errors, 'city')}
           </div>
         </div>
-        <div className="mb-3 required state">
-          <label htmlFor="address">State/Province</label>
+        <div className="mb-3 state">
+          <label htmlFor="address">State/Province(Optional)</label>
           <input
             type="text"
             className="form-control"
