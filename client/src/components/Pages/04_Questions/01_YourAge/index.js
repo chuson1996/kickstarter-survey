@@ -32,7 +32,6 @@ const isAnswered = yourAge => {
 const YourAge = ({ nextPage, prevPage, handleChange, values, yourAge }) => (
   <div className="age-container">
     <div className="age">
-      {console.log('values.yourAge', values.yourAge)}
       <p className="age-para">Select your age group:</p>
       <div className="question">
         {options.map((age, ageIndex) => (
