@@ -46,7 +46,7 @@ class SurveyForm extends Component {
   componentDidMount() {
     axios
       // eslint-disable-next-line react/destructuring-assignment
-      .get(`/api/v1/backer/${this.props.match.params.id}`)
+      .get(`http://localhost:5000/api/v1/backer/${this.props.match.params.id}`)
       .then(res => {
         this.setState(
           {
@@ -56,12 +56,20 @@ class SurveyForm extends Component {
             pledge: res.data.map(pledge => pledge.pledge)[0]
           },
           () => {
-            const { email } = this.state
+            const { email, pledge } = this.state
             if (email === undefined) {
               this.setState({
                 page: 10
               })
             }
+            this.setState({
+              shoes: Array(pledge).fill({
+                color: '',
+                size: '',
+                gender: '',
+                whichSize: ''
+              })
+            })
           }
         )
       })
@@ -88,10 +96,13 @@ class SurveyForm extends Component {
     console.log({ page })
     if (page === 7) {
       try {
-        const onAddressSubmit = await axios.post('/api/v1/address', {
-          address,
-          name
-        })
+        const onAddressSubmit = await axios.post(
+          'http://localhost:5000/api/v1/address',
+          {
+            address,
+            name
+          }
+        )
 
         if (onAddressSubmit.status === 200) {
           this.setState({
@@ -145,7 +156,8 @@ class SurveyForm extends Component {
     }))
   }
 
-  handleShoeChange = (i, shoeName) => e => {
+  handleShoeChange = (i, shoeName, pledge) => e => {
+    console.log({ i, shoeName, pledge })
     const { target } = e
     const value = target.type === 'checkbox' ? target.checked : target.value
     const { name } = target
@@ -159,18 +171,6 @@ class SurveyForm extends Component {
     })
     this.setState({
       shoes: newShoes
-    })
-  }
-
-  handleAddAnotherColor = () => {
-    const { shoes } = this.state
-    this.setState({
-      shoes: shoes.concat([
-        {
-          color: '',
-          size: ''
-        }
-      ])
     })
   }
 
@@ -188,7 +188,7 @@ class SurveyForm extends Component {
     } = this.state
 
     try {
-      const orders = await axios.post('/api/v1/order', {
+      const orders = await axios.post('http://localhost:5000/api/v1/order', {
         name,
         country,
         email,

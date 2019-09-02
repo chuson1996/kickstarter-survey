@@ -38,6 +38,13 @@ label {
     display: flex;
     flex-direction: column-reverse;
     text-align: center;
+    img {
+      cursor: pointer;
+      height: 200px;
+      @include for-phone {
+        height: 150px;
+      }
+    }
   }
   .collections:hover {
     background: lightblue;

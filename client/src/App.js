@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/api/v1/backer').then(res => {
+    axios.get('http://localhost:5000/api/v1/backer').then(res => {
       this.setState({
         backers: res.data,
         loading: false
@@ -37,7 +37,6 @@ class App extends React.Component {
     console.log({ backers })
     return (
       <Router>
-        {/* <SurveyFormHeader /> */}
         <div className="App">
           <Switch>
             <Route

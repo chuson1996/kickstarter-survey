@@ -14,7 +14,6 @@ const ColorAndSize = ({
   prevPage,
   shoes,
   handleShoeChange,
-  handleAddAnotherColor,
   pledge,
   values,
   goToFinalpage
@@ -32,19 +31,17 @@ const ColorAndSize = ({
         </label>
       </>
     </p>
+
     {shoes.map((shoe, index) => {
       return (
         <div key={index} className="delivery-items">
+          <p style={{ textAlign: 'center' }}>{`Shoe #${index + 1}`}</p>
           <div className="color">
             {shoeColors.map((shoeColor, shoeColorIndex) => {
               return (
                 <div key={shoeColorIndex} className="collections">
                   <p>{shoeColor.color}</p>
                   <img
-                    style={{
-                      cursor: 'pointer',
-                      height: '200px'
-                    }}
                     src={shoeColor.src}
                     alt={shoeColor.color}
                     value={shoe.color}
@@ -88,21 +85,11 @@ const ColorAndSize = ({
         ))}
       </tbody>
     </table>
-
     <div
       className={`col-lg-3 col-md-4 col-sm-6 mb-3 another ${
         parseInt(pledge, 10) <= shoes.length ? 'none' : ''
       }`}
-    >
-      <button
-        type="button"
-        className="btn btn-primary btn-lg btn-block "
-        onClick={handleAddAnotherColor}
-      >
-        Add Another Color
-      </button>
-    </div>
-
+    />
     <div className="color-size-buttons">
       <button
         type="button"
@@ -129,33 +116,6 @@ const ColorAndSize = ({
         </button>
       )}
     </div>
-
-    {/* <div className="row next">
-      <button
-        type="button"
-        onClick={prevPage}
-        className="btn col-lg-3 col-md-4 col-sm-6  btn-warning btn-lg"
-      >
-        Previous
-      </button>
-      <button
-        type="button"
-        className="btn col-lg-3 col-md-4 col-sm-6  btn-success btn-lg"
-        onClick={nextPage}
-        disabled={!invalidShoes(values.shoes, pledge)}
-      >
-        Next Page
-      </button>
-      {values.validAddress && (
-        <button
-          type="button"
-          onClick={goToFinalpage}
-          className="btn col-lg-3 col-md-4 col-sm-6  btn-warning btn-lg"
-        >
-          Go To Preview Page
-        </button>
-      )}
-    </div> */}
   </div>
 )
 
