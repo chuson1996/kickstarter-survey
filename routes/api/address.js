@@ -22,18 +22,10 @@ router.post(
       .not()
       .isEmpty()
       .withMessage('Address cannot be empty'),
-    check('address.address2')
-      .not()
-      .isEmpty()
-      .withMessage('Address cannot be empty'),
     check('address.city')
       .not()
       .isEmpty()
       .withMessage('City cannot be empty'),
-    check('address.state')
-      .not()
-      .isEmpty()
-      .withMessage('State cannot be empty'),
     check('address.zipCode')
       .not()
       .isEmpty()
