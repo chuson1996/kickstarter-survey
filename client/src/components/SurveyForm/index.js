@@ -94,7 +94,6 @@ class SurveyForm extends Component {
   nextPage = async e => {
     e.preventDefault()
     const { address, name, page } = this.state
-    console.log({ page })
     if (page === 7) {
       try {
         const onAddressSubmit = await axios.post('/api/v1/address', {
