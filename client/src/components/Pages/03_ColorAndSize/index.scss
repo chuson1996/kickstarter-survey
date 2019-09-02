@@ -41,13 +41,18 @@ label {
     img {
       cursor: pointer;
       height: 200px;
+      transition: transform 0.5s;
       @include for-phone {
         height: 150px;
       }
     }
   }
   .collections:hover {
-    background: lightblue;
+    img {
+      -ms-transform: scale(1.5); /* IE 9 */
+      -webkit-transform: scale(1.5); /* Safari 3-8 */
+      transform: scale(1.5);
+    }
   }
 }
 

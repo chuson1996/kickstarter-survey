@@ -62,6 +62,7 @@ class SurveyForm extends Component {
                 page: 10
               })
             }
+            // fill the shoes state with whatever the number of pledges the user has made
             this.setState({
               shoes: Array(pledge).fill({
                 color: '',
@@ -156,8 +157,7 @@ class SurveyForm extends Component {
     }))
   }
 
-  handleShoeChange = (i, shoeName, pledge) => e => {
-    console.log({ i, shoeName, pledge })
+  handleShoeChange = (i, shoeName) => e => {
     const { target } = e
     const value = target.type === 'checkbox' ? target.checked : target.value
     const { name } = target
@@ -229,7 +229,7 @@ class SurveyForm extends Component {
       errors,
       validAddress
     } = this.state
-    console.log('state', this.state)
+
     const values = {
       page,
       name,
