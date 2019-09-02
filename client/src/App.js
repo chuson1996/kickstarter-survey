@@ -37,7 +37,6 @@ class App extends React.Component {
     console.log({ backers })
     return (
       <Router>
-        {/* <SurveyFormHeader /> */}
         <div className="App">
           <Switch>
             <Route

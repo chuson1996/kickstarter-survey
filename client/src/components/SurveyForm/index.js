@@ -56,12 +56,21 @@ class SurveyForm extends Component {
             pledge: res.data.map(pledge => pledge.pledge)[0]
           },
           () => {
-            const { email } = this.state
+            const { email, pledge } = this.state
             if (email === undefined) {
               this.setState({
                 page: 10
               })
             }
+            // fill the shoes state with whatever the number of pledges the user has made
+            this.setState({
+              shoes: Array(pledge).fill({
+                color: '',
+                size: '',
+                gender: '',
+                whichSize: ''
+              })
+            })
           }
         )
       })
@@ -162,18 +171,6 @@ class SurveyForm extends Component {
     })
   }
 
-  handleAddAnotherColor = () => {
-    const { shoes } = this.state
-    this.setState({
-      shoes: shoes.concat([
-        {
-          color: '',
-          size: ''
-        }
-      ])
-    })
-  }
-
   handleSubmit = async e => {
     e.preventDefault()
     const {
@@ -229,7 +226,7 @@ class SurveyForm extends Component {
       errors,
       validAddress
     } = this.state
-    console.log('state', this.state)
+
     const values = {
       page,
       name,
