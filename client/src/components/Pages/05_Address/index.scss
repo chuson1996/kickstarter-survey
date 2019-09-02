@@ -1,7 +1,12 @@
 @import '../../../assets/styles/mixins';
 .address {
   width: 70%;
-  margin: auto;
+  margin: 2rem auto;
+  box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
+  padding: 3rem;
+  @include for-phone {
+    width: 100%;
+  }
   .required label {
     font-weight: bold;
   }
