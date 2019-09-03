@@ -34,7 +34,7 @@ const Preview = ({
       </table>
       <button
         type="button"
-        className="btn btn-primary btn-lg edit-shoe"
+        className="btn btn-primary btn-md edit-shoe"
         onClick={handleEditShoeColorAndSize}
       >
         Edit Shoe
@@ -45,16 +45,41 @@ const Preview = ({
       <div className="card-header">Shipping Address</div>
       <div className="card-body">
         <h5 className="card-title">{values.name}</h5>
-        <p className="card-text">{previewData.address.address1}</p>
-        <p className="card-text">{previewData.address.address2}</p>
-        <p className="card-text">{previewData.address.city}</p>
-        <p className="card-text">{previewData.address.state}</p>
-        <p className="card-text">{previewData.country}</p>
-        <p className="card-text">{previewData.address.zipCode}</p>
-        <p className="card-text">{previewData.address.phone}</p>
+        <div className="card-text">
+          <label>Address 1</label>
+          <p>{previewData.address.address1}</p>
+        </div>
+        {previewData.address.address2 !== '' && (
+          <div className="card-text">
+            <label>Address 2</label>
+            <p>{previewData.address.address2}</p>
+          </div>
+        )}
+        <div className="card-text">
+          <label>City</label>
+          <p>{previewData.address.city}</p>
+        </div>
+        {previewData.address.state !== '' && (
+          <div className="card-text">
+            <label>State</label>
+            <p>{previewData.address.state}</p>
+          </div>
+        )}
+        <div className="card-text">
+          <label>Country</label>
+          <p>{previewData.country}</p>
+        </div>
+        <div className="card-text">
+          <label>Zip Code</label>
+          <p>{previewData.address.zipCode}</p>
+        </div>
+        <div className="card-text">
+          <label>Phone</label>
+          <p>{previewData.address.phone}</p>
+        </div>
         <button
           type="button"
-          className="btn  btn-primary btn-lg edit-address"
+          className="btn  btn-primary btn-md edit-address"
           onClick={handleEditAddress}
         >
           Edit Address
@@ -62,21 +87,6 @@ const Preview = ({
       </div>
     </div>
 
-    {/* <div className="preview-address">
-      <h4>Addres</h4>
-      <li>{previewData.address.address1}</li>
-      <li>{previewData.address.city}</li>
-      <li>{previewData.address.state}</li>
-      <li>{previewData.address.zipCode}</li>
-      <li>{previewData.address.phone}</li>
-      <button
-        type="button"
-        className="btn col-lg-3 col-md-4 col-sm-6 mb-3 btn-primary btn-lg"
-        onClick={handleEditAddress}
-      >
-        Edit Address
-      </button>
-    </div> */}
     <div className="row next">
       <button
         type="button"

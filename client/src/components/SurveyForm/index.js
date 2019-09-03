@@ -241,7 +241,7 @@ class SurveyForm extends Component {
       errors,
       validAddress
     }
-
+    console.log('state', this.state)
     switch (page) {
       case 1:
         return (

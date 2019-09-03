@@ -12,6 +12,11 @@
   color: #dc3545;
 }
 
+.card-text {
+  display: flex;
+  justify-content: space-around;
+}
+
 .card.order-item {
   width: 60%;
   margin: auto;
@@ -23,7 +28,7 @@
 }
 
 .edit-shoe {
-  width: 50%;
+  width: 25%;
   margin: auto;
 }
 
@@ -32,7 +37,7 @@
   margin: 2rem auto;
 }
 .edit-address {
-  width: 50%;
+  width: 35%;
   margin: auto;
 }
 

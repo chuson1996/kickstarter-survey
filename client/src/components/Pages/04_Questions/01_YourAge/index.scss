@@ -24,6 +24,14 @@
     .question {
       padding: 0.8rem;
     }
+
+    .question-one{
+      position: relative;
+      bottom: 7rem;
+      @include for-phone{
+        bottom: 4rem;
+      }
+    }
   }
 }
 

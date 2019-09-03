@@ -19,6 +19,9 @@ const options = [
 const WhyRens = ({ handleChange, nextPage, prevPage, whyRens }) => (
   <div className="why-rens-container">
     <div className="why-rens">
+      <h5 className="question-two" style={{ textAlign: 'center' }}>
+        Question 2 of 2
+      </h5>
       <p className="why-rens-para">
         What feature of Rens are you most interested in?
       </p>

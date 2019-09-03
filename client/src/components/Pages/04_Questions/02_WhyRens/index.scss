@@ -28,6 +28,14 @@
         margin-left: 1rem;
       }
     }
+
+    .question-two{
+      position: relative;
+      bottom: 7rem;
+      @include for-phone{
+        bottom: 4rem;
+      }
+    }
   }
 }
 

@@ -32,6 +32,9 @@ const isAnswered = yourAge => {
 const YourAge = ({ nextPage, prevPage, handleChange, values, yourAge }) => (
   <div className="age-container">
     <div className="age">
+      <h5 className="question-one" style={{ textAlign: 'center' }}>
+        Question 1 of 2
+      </h5>
       <p className="age-para">Select your age group:</p>
       <div className="question">
         {options.map((age, ageIndex) => (

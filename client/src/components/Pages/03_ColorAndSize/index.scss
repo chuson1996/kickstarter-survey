@@ -113,4 +113,11 @@ table.preview-table {
       margin: 0.5rem auto 0.5rem auto;
     }
   }
+  .preview-page{
+    width: 15rem;
+    @include for-phone {
+      width: 80%;
+      margin: 0.5rem auto 0.5rem auto;
+    }
+  }
 }
